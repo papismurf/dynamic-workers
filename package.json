@@ -1,0 +1,22 @@
+{
+  "name": "agent-orchestrator",
+  "description": "AI Agent Orchestration Platform on Cloudflare Dynamic Workers",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types src/env.d.ts --include-runtime false",
+    "typecheck": "tsc --noEmit",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "@cloudflare/worker-bundler": "^0.0.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260405.1",
+    "typescript": "^5.7.0",
+    "wrangler": "^4.80.0"
+  }
+}

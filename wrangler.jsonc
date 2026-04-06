@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agent-orchestrator",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-03-24",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Worker Loader binding — gives us env.LOADER to spin up Dynamic Workers
+  "worker_loaders": [{ "binding": "LOADER" }],
+
+  // Durable Objects for state management, log streaming, and cost tracking
+  "durable_objects": {
+    "bindings": [
+      { "name": "TASK_MANAGER", "class_name": "TaskManager" },
+      { "name": "LOG_SESSION", "class_name": "LogSession" },
+      { "name": "COST_TRACKER", "class_name": "CostTracker" }
+    ]
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_classes": ["TaskManager", "LogSession", "CostTracker"]
+    }
+  ],
+
+  // KV namespaces for agent memory and repo credential scoping
+  "kv_namespaces": [
+    { "binding": "AGENT_MEMORY", "id": "" },
+    { "binding": "REPO_CREDENTIALS", "id": "" }
+  ],
+
+  // Observability — capture loader Worker logs
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+
+  // Environment variables (secrets set via `wrangler secret put`)
+  "vars": {
+    "DEFAULT_LLM_MODEL": "claude-sonnet-4-20250514",
+    "DEFAULT_LLM_PROVIDER": "anthropic",
+    "MAX_AGENT_RETRIES": "3",
+    "ALLOWED_EGRESS_DOMAINS": "api.anthropic.com,api.openai.com,api.github.com,registry.npmjs.org"
+  }
+}
