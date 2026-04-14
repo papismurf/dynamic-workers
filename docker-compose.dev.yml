@@ -1,0 +1,36 @@
+# Development override — runs `wrangler dev` with hot reload.
+#
+# Usage:
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+#
+# Secrets come from .dev.vars (same file wrangler reads locally). Copy
+# .env.example to .dev.vars and fill in your API keys before starting.
+
+services:
+  orchestrator:
+    build:
+      target: dev
+    command: ["npx", "wrangler", "dev", "--ip", "0.0.0.0", "--port", "8787"]
+    ports:
+      - "8787:8787"
+    environment:
+      # Wrangler writes to $HOME; keep it inside the volume so auth/config
+      # persist and don't collide with the host user's real $HOME.
+      - HOME=/app/.wrangler/home
+    volumes:
+      # Bind-mount the source tree so edits on the host trigger wrangler's
+      # file watcher inside the container.
+      - ./src:/app/src
+      - ./wrangler.jsonc:/app/wrangler.jsonc
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+      # .dev.vars is wrangler's local secrets file. Mounted read-only so a
+      # misbehaving dep can't rewrite it.
+      - ./.dev.vars:/app/.dev.vars:ro
+      # Named volume for node_modules so host and container don't fight over
+      # platform-specific binaries (esbuild, etc.).
+      - node_modules:/app/node_modules
+
+volumes:
+  node_modules:
