@@ -1,0 +1,32 @@
+# Production override — runs `wrangler deploy` against Cloudflare.
+#
+# Important: Cloudflare Workers run on Cloudflare's edge. This compose file
+# does NOT host the worker; it provides a reproducible, pinned toolchain for
+# deploying. Use it from CI or from a workstation that doesn't have the
+# correct Node/wrangler versions installed locally.
+#
+# Usage:
+#   # One-shot deploy (recommended):
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml run --rm orchestrator
+#
+#   # Tail live production logs:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml run --rm orchestrator npx wrangler tail
+#
+# Secrets are supplied via environment variables (e.g. an .env file or the
+# CI provider's secret store). CLOUDFLARE_API_TOKEN is required; the
+# per-provider API keys are consumed by `wrangler secret put` in a separate
+# step — they are NOT baked into the Worker at deploy time.
+
+services:
+  orchestrator:
+    build:
+      target: prod
+    # `run --rm` + `restart: no` ensures deploys are one-shot, not a service
+    # that keeps restarting after a successful push.
+    restart: "no"
+    command: ["npx", "wrangler", "deploy"]
+    environment:
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - CLOUDFLARE_ACCOUNT_ID=${CLOUDFLARE_ACCOUNT_ID:-}
+    # No source bind-mount: the image is the deploy artifact. Reproducibility
+    # comes from the built image, not from whatever happens to be on disk.

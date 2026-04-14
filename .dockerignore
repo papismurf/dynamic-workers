@@ -1,0 +1,16 @@
+node_modules
+.wrangler
+dist
+.git
+.github
+.env
+.env.*
+.dev.vars
+*.log
+npm-debug.log*
+Dockerfile
+docker-compose*.yml
+.dockerignore
+.vscode
+.idea
+.DS_Store

@@ -67,6 +67,19 @@ npm run dev
 curl http://localhost:8787/health
 ```
 
+### Local Development with Docker
+
+If you'd rather not install Node/wrangler on the host:
+
+```bash
+cp .env.example .dev.vars   # fill in your API keys
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+# → http://localhost:8787  (hot reload enabled via source bind-mount)
+```
+
+See [docs/docker.md](docs/docker.md) for the full Compose guide, including
+deploying to Cloudflare from a pinned toolchain image.
+
 ### Production Deployment
 
 ```bash
@@ -238,6 +251,11 @@ Full API documentation: [docs/api-reference.md](docs/api-reference.md)
 ├── wrangler.jsonc                 # Cloudflare Worker configuration
 ├── package.json                   # Dependencies and scripts
 ├── tsconfig.json                  # TypeScript (strict mode)
+├── Dockerfile                     # Multi-stage: dev / typecheck / prod deploy
+├── docker-compose.yml             # Base Compose service definition
+├── docker-compose.dev.yml         # Dev override (wrangler dev + hot reload)
+├── docker-compose.prod.yml        # Prod override (wrangler deploy)
+├── .env.example                   # Template for .dev.vars and .env
 ├── docs/
 │   ├── architecture.md            # System design and data flow
 │   ├── research-brief.md          # Dynamic Workers platform research
@@ -245,6 +263,7 @@ Full API documentation: [docs/api-reference.md](docs/api-reference.md)
 │   ├── agents.md                  # Agent types and tool API
 │   ├── security.md                # Security model and egress control
 │   ├── deployment.md              # Local dev, production, and CI/CD
+│   ├── docker.md                  # Docker Compose usage and deploy workflow
 │   └── configuration.md           # Wrangler config and tuning guide
 ├── src/
 │   ├── index.ts                   # Orchestrator Worker (main entry)
@@ -278,6 +297,7 @@ Full API documentation: [docs/api-reference.md](docs/api-reference.md)
 | [Agents](docs/agents.md) | Agent types, tool API interfaces, how to add new agents |
 | [Security](docs/security.md) | Sandboxing, egress control, credential separation, threat model |
 | [Deployment](docs/deployment.md) | Local dev, production deploy, CI/CD pipelines |
+| [Docker](docs/docker.md) | Containerized dev server and pinned deploy toolchain via Docker Compose |
 | [Configuration](docs/configuration.md) | Wrangler config, secrets, tuning guide, multi-environment |
 
 ---
@@ -307,6 +327,6 @@ This project is dual-licensed:
 
 The Community License grants full Apache 2.0 freedoms (including an explicit patent grant) with the Commons Clause restriction that prohibits selling the software or offering it as a paid service. All contributions are assigned to the copyright holder under the Contributor License Agreement in the LICENSE file.
 
-For commercial licensing inquiries, contact David Brown via [GitHub](https://github.com/davidbrown).
+For commercial licensing inquiries, contact David Brown via [GitHub](https://github.com/papismurf).
 
 See [LICENSE](LICENSE) for the full terms.

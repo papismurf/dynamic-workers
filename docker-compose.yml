@@ -1,0 +1,23 @@
+# Base compose file — shared service definition consumed by both the dev and
+# prod overrides. Invoke it via:
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml run --rm orchestrator
+#
+# On its own this file is not intended to `up` — the overrides pick the
+# Dockerfile target and the command.
+
+services:
+  orchestrator:
+    image: agent-orchestrator:${TAG:-local}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # `tty` keeps wrangler's interactive output readable when attached.
+    tty: true
+    # Cache wrangler's local state (D1/KV/DO simulators, build artifacts)
+    # across container restarts so dev startup stays fast.
+    volumes:
+      - wrangler-state:/app/.wrangler
+
+volumes:
+  wrangler-state:
