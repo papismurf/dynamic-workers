@@ -26,8 +26,8 @@
 
   // KV namespaces for agent memory and repo credential scoping
   "kv_namespaces": [
-    { "binding": "AGENT_MEMORY", "id": "" },
-    { "binding": "REPO_CREDENTIALS", "id": "" }
+    { "binding": "AGENT_MEMORY", "id": "local_memory_placeholder" },
+    { "binding": "REPO_CREDENTIALS", "id": "local_creds_placeholder" }
   ],
 
   // Observability — capture loader Worker logs
