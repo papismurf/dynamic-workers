@@ -4,6 +4,8 @@ An AI agent orchestration platform built on [Cloudflare Dynamic Workers](https:/
 
 Each agent runs in its own Dynamic Worker with controlled network access, capability-based bindings, and full observability. No containers. No cold-start penalty. 100+ concurrent agents.
 
+![logo header](.github\assets\puppeteer_agent_light_wide.svg)
+
 ---
 
 ## How It Works
