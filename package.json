@@ -9,14 +9,30 @@
     "deploy": "wrangler deploy",
     "types": "wrangler types src/env.d.ts --include-runtime false",
     "typecheck": "tsc --noEmit",
-    "tail": "wrangler tail"
+    "tail": "wrangler tail",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js --selectProjects unit",
+    "test:integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js --selectProjects integration",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:ci": "npm run typecheck && npm run test:coverage && npm run test:e2e"
   },
   "dependencies": {
     "@cloudflare/worker-bundler": "^0.0.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260405.1",
+    "@playwright/test": "^1.49.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.17.0",
+    "@types/ws": "^8.5.13",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "typescript": "^5.7.0",
-    "wrangler": "^4.80.0"
+    "undici": "^6.21.0",
+    "wrangler": "^4.80.0",
+    "ws": "^8.18.0"
   }
 }
