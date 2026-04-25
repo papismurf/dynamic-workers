@@ -32,6 +32,13 @@ class OrchestratorTask(BaseModel):
     status: str = "pending"
 
 
+class SubtaskError(BaseModel):
+    """A single failed subtask extracted from the orchestrator response."""
+    subtaskId: str
+    agentType: str
+    error: str
+
+
 class TaskStatus(BaseModel):
     """Simplified task status from the orchestrator."""
     id: str
@@ -39,3 +46,5 @@ class TaskStatus(BaseModel):
     summary: str | None = None
     error: str | None = None
     cost_usd: float | None = None
+    subtask_errors: list[SubtaskError] | None = None
+    raw_status: str | None = None

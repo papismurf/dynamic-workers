@@ -5,10 +5,47 @@ The orchestrator spins up sandboxed Dynamic Workers that run AI agents
 to perform the requested analysis.
 """
 
+import json
+import logging
+import re
+
 import httpx
 
 from .config import settings
-from .models import TaskStatus
+from .models import SubtaskError, TaskStatus
+
+logger = logging.getLogger(__name__)
+
+_SECRET_HEADER_RE = re.compile(r"key|token|auth", re.IGNORECASE)
+_SECRET_FIELD_RE = re.compile(r"apikey|api_key|githubpat|github_pat|token|secret", re.IGNORECASE)
+_PAYLOAD_PREVIEW_LIMIT = 500
+
+
+def _redact_headers(headers: dict | None) -> dict:
+    if not headers:
+        return {}
+    return {k: ("***" if _SECRET_HEADER_RE.search(k) else v) for k, v in headers.items()}
+
+
+def _redact_payload(payload) -> str:
+    """Serialize payload to a truncated, secret-redacted string for logging."""
+    try:
+        def scrub(obj):
+            if isinstance(obj, dict):
+                return {
+                    k: ("***" if _SECRET_FIELD_RE.search(k) else scrub(v))
+                    for k, v in obj.items()
+                }
+            if isinstance(obj, list):
+                return [scrub(v) for v in obj]
+            return obj
+
+        text = json.dumps(scrub(payload), default=str)
+    except (TypeError, ValueError):
+        text = str(payload)
+    if len(text) > _PAYLOAD_PREVIEW_LIMIT:
+        return text[:_PAYLOAD_PREVIEW_LIMIT] + f"...<truncated {len(text) - _PAYLOAD_PREVIEW_LIMIT} chars>"
+    return text
 
 
 class OrchestratorClient:
@@ -18,9 +55,39 @@ class OrchestratorClient:
         self.base_url = (base_url or settings.orchestrator_url).rstrip("/")
         self._http = httpx.AsyncClient(base_url=self.base_url, timeout=30.0)
 
-    async def health(self) -> dict:
-        resp = await self._http.get("/health")
+    async def _request(
+        self,
+        method: str,
+        path: str,
+        *,
+        json_body: dict | None = None,
+        request_id: str | None = None,
+    ) -> httpx.Response:
+        rid = f" rid={request_id}" if request_id else ""
+        if json_body is not None:
+            logger.debug(
+                "[orchestrator] %s %s%s payload=%s",
+                method, path, rid, _redact_payload(json_body),
+            )
+        else:
+            logger.debug("[orchestrator] %s %s%s", method, path, rid)
+
+        resp = await self._http.request(method, path, json=json_body)
+        if resp.status_code >= 400:
+            logger.error(
+                "[orchestrator] %s %s%s -> %d body=%s",
+                method, path, rid, resp.status_code,
+                resp.text[:_PAYLOAD_PREVIEW_LIMIT],
+            )
+        else:
+            logger.debug(
+                "[orchestrator] %s %s%s -> %d", method, path, rid, resp.status_code,
+            )
         resp.raise_for_status()
+        return resp
+
+    async def health(self) -> dict:
+        resp = await self._request("GET", "/health")
         return resp.json()
 
     async def create_analysis_task(
@@ -28,6 +95,7 @@ class OrchestratorClient:
         coin_id: str,
         price_data: dict,
         analysis_type: str = "summary",
+        request_id: str | None = None,
     ) -> str:
         """Submit a crypto analysis task to the orchestrator.
 
@@ -46,10 +114,6 @@ class OrchestratorClient:
             f"24h volume: ${price_data.get('volume_24h', 'N/A')}\n"
         )
 
-        # The agent source code is a small JS module that the orchestrator
-        # bundles and runs inside a Dynamic Worker.  The agent uses the LLM
-        # binding (env.LLM) injected by the orchestrator — credentials never
-        # touch the agent.
         agent_source = _build_agent_source(coin_id, analysis_type, price_data)
 
         payload = {
@@ -76,43 +140,79 @@ class OrchestratorClient:
                 }
             ]
         }
+        if request_id:
+            payload["metadata"] = {"requestId": request_id}
 
-        resp = await self._http.post("/tasks", json=payload)
-        resp.raise_for_status()
+        resp = await self._request("POST", "/tasks", json_body=payload, request_id=request_id)
         data = resp.json()
-        return data["taskIds"][0]
+        task_id = data["taskIds"][0]
+        logger.info(
+            "[orchestrator] task created task_id=%s coin=%s type=%s rid=%s",
+            task_id, coin_id, analysis_type, request_id,
+        )
+        return task_id
 
-    async def get_task(self, task_id: str) -> TaskStatus:
+    async def get_task(self, task_id: str, request_id: str | None = None) -> TaskStatus:
         """Poll the orchestrator for task status."""
-        resp = await self._http.get(f"/tasks/{task_id}")
-        resp.raise_for_status()
+        resp = await self._request("GET", f"/tasks/{task_id}", request_id=request_id)
         data = resp.json()["task"]
 
-        summary = None
-        cost_usd = None
+        summary: str | None = None
+        cost_usd: float | None = None
+        subtask_errors: list[SubtaskError] = []
 
-        # Extract summary from completed agent results
         if data.get("results"):
             for result in data["results"].values():
-                if result.get("output", {}).get("summary"):
-                    summary = result["output"]["summary"]
-                    break
+                output = result.get("output") or {}
+                if output.get("summary") and not summary:
+                    summary = output["summary"]
+                if not result.get("success", True) and result.get("error"):
+                    subtask_errors.append(
+                        SubtaskError(
+                            subtaskId=result.get("subtaskId", "?"),
+                            agentType=result.get("agentType", "?"),
+                            error=str(result["error"]),
+                        )
+                    )
 
         if data.get("cost"):
             cost_usd = data["cost"].get("estimatedCostUsd")
+
+        raw_status = data.get("status", "unknown")
+        top_level_error = data.get("error")
+        composed_error: str | None = None
+
+        if raw_status == "failed":
+            for se in subtask_errors:
+                logger.error(
+                    "[orchestrator] subtask failed task_id=%s subtaskId=%s agent=%s error=%s",
+                    task_id, se.subtaskId, se.agentType, se.error,
+                )
+            parts: list[str] = []
+            if top_level_error:
+                parts.append(f"orchestrator: {top_level_error}")
+            for se in subtask_errors:
+                parts.append(f"{se.agentType}[{se.subtaskId}]: {se.error}")
+            if parts:
+                composed_error = " | ".join(parts)
+            elif top_level_error:
+                composed_error = top_level_error
+            else:
+                composed_error = "Task failed with no error details reported by the orchestrator"
 
         return TaskStatus(
             id=data["id"],
             status=data["status"],
             summary=summary,
-            error=data.get("error"),
+            error=composed_error or top_level_error,
             cost_usd=cost_usd,
+            subtask_errors=subtask_errors or None,
+            raw_status=raw_status,
         )
 
     async def get_usage(self) -> dict:
         """Fetch aggregate cost/usage from the orchestrator."""
-        resp = await self._http.get("/usage")
-        resp.raise_for_status()
+        resp = await self._request("GET", "/usage")
         return resp.json()
 
     async def close(self):

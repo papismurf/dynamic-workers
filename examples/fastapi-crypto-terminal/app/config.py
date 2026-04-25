@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     github_owner: str = "myorg"
     github_repo: str = "crypto-terminal"
 
+    # Logging
+    log_level: str = "INFO"
+
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
 
 

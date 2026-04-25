@@ -5,6 +5,7 @@ connected WebSocket clients via an in-memory pub/sub.
 """
 
 import asyncio
+import logging
 import time
 from collections.abc import AsyncGenerator
 
@@ -12,6 +13,8 @@ import httpx
 
 from .config import settings
 from .models import CoinPrice, PriceTick
+
+logger = logging.getLogger(__name__)
 
 
 class PriceService:
@@ -76,9 +79,9 @@ class PriceService:
                     except asyncio.QueueFull:
                         pass  # slow consumer — drop tick
             except httpx.HTTPStatusError as exc:
-                print(f"[prices] CoinGecko API error: {exc.response.status_code}")
+                logger.warning("[prices] CoinGecko API error: %s", exc.response.status_code)
             except Exception as exc:
-                print(f"[prices] Fetch error: {exc}")
+                logger.error("[prices] Fetch error: %s", exc, exc_info=True)
 
             await asyncio.sleep(settings.price_interval)
 
