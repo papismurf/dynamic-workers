@@ -521,6 +521,9 @@ async function runAgent(
 
   const workerId = `${taskId}-${subtask.id}`;
 
+  const model = config.model ?? env.DEFAULT_LLM_MODEL;
+  const { owner, repo, branch, baseBranch } = taskReq.repo;
+
   const worker = env.LOADER.get(workerId, async () => ({
     mainModule,
     modules: modules as Record<string, string>,
@@ -535,6 +538,18 @@ async function runAgent(
         targetFiles: Object.keys(taskReq.repo.files),
         context: subtask.context,
       },
+      LLM: ctxExports.LLM({
+        props: { provider, model, apiKey, taskId, agentType: subtask.agentType },
+      }),
+      FS: ctxExports.FileSystem({
+        props: { owner, repo, branch, githubPat: env.GITHUB_PAT },
+      }),
+      GIT: ctxExports.Git({
+        props: { owner, repo, branch, baseBranch, githubPat: env.GITHUB_PAT },
+      }),
+      SEARCH: ctxExports.CodeSearch({
+        props: { owner, repo, branch, githubPat: env.GITHUB_PAT },
+      }),
     },
 
     globalOutbound: ctxExports.HttpGateway({

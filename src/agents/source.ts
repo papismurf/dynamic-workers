@@ -46,7 +46,7 @@ export class CodeGenAgent extends WorkerEntrypoint {
       }
     }
 
-    const conventions = await this.env.MEMORY.get("coding-conventions");
+    const conventions = await this.env.MEMORY?.get?.("coding-conventions").catch(() => null);
     const systemPrompt = [
       "You are an expert software engineer. Generate production-quality code.",
       "Return ONLY code blocks with file paths. Format each file as:",
@@ -151,7 +151,7 @@ export class TestAgent extends WorkerEntrypoint {
       }
     }
 
-    const conventions = await this.env.MEMORY.get("test-conventions");
+    const conventions = await this.env.MEMORY?.get?.("test-conventions").catch(() => null);
     let testFramework = "vitest";
     try {
       const pkg = await this.env.FS.read("package.json");
@@ -268,7 +268,7 @@ export class ReviewAgent extends WorkerEntrypoint {
       }
     }
 
-    const pastFeedback = await this.env.MEMORY.get("review-patterns");
+    const pastFeedback = await this.env.MEMORY?.get?.("review-patterns").catch(() => null);
     const systemPrompt = [
       "You are a senior code reviewer. Analyze the code for:",
       "1. Bugs and logic errors",
@@ -330,7 +330,7 @@ export class ReviewAgent extends WorkerEntrypoint {
 
     if (comments.length > 0) {
       const patterns = comments.filter(c => c.severity === "error").map(c => c.message).slice(0, 10).join("\\n");
-      if (patterns) await this.env.MEMORY.set("review-patterns", patterns);
+      if (patterns) await this.env.MEMORY?.set?.("review-patterns", patterns).catch(() => {});
     }
 
     const durationMs = Date.now() - startTime;

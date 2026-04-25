@@ -1,0 +1,10 @@
+services:
+  crypto-terminal:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - ORCHESTRATOR_URL=${ORCHESTRATOR_URL:-http://host.docker.internal:8787}
+    restart: unless-stopped
