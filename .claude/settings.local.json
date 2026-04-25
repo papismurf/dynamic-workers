@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(if \\($env:ANTHROPIC_API_KEY\\) { \"ANTHROPIC_API_KEY is set \\(len=$\\($env:ANTHROPIC_API_KEY.Length\\)\\)\" } else { \"ANTHROPIC_API_KEY not set in env\" })",
+      "Bash(npm run *)",
+      "PowerShell(py *)",
+      "Bash(curl *)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); btc=next\\(c for c in d['coins'] if c['id']=='bitcoin'\\); print\\(json.dumps\\(btc, indent=2\\)\\)\")"
+    ]
+  }
+}
