@@ -127,6 +127,25 @@ function getCostDO(env: Env) {
 }
 
 // ---------------------------------------------------------------------------
+// CORS — allow the local task-ui dev server and any deployed Pages site.
+// Tighten ALLOWED_ORIGIN in production by setting it to your Pages domain.
+// ---------------------------------------------------------------------------
+
+const CORS_HEADERS: Record<string, string> = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+function withCors(res: Response): Response {
+  const wrapped = new Response(res.body, res);
+  for (const [k, v] of Object.entries(CORS_HEADERS)) {
+    wrapped.headers.set(k, v);
+  }
+  return wrapped;
+}
+
+// ---------------------------------------------------------------------------
 // HTTP API router
 // ---------------------------------------------------------------------------
 
@@ -138,25 +157,30 @@ export default {
   ): Promise<Response> {
     const url = new URL(request.url);
 
+    // CORS preflight — must be handled before any other logic
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: CORS_HEADERS });
+    }
+
     try {
       // Health check
       if (url.pathname === "/" || url.pathname === "/health") {
-        return Response.json({
+        return withCors(Response.json({
           service: "agent-orchestrator",
           status: "healthy",
           version: "0.1.0",
-        });
+        }));
       }
 
       // Create tasks
       if (url.pathname === "/tasks" && request.method === "POST") {
-        return handleCreateTasks(request, env, ctx);
+        return withCors(await handleCreateTasks(request, env, ctx));
       }
 
       // Get task status
       if (url.pathname.match(/^\/tasks\/[\w-]+$/) && request.method === "GET") {
         const taskId = url.pathname.split("/").pop()!;
-        return handleGetTask(taskId, env);
+        return withCors(await handleGetTask(taskId, env));
       }
 
       // Human review decision
@@ -165,10 +189,10 @@ export default {
         request.method === "POST"
       ) {
         const taskId = url.pathname.split("/")[2]!;
-        return handleReviewDecision(taskId, request, env, ctx);
+        return withCors(await handleReviewDecision(taskId, request, env, ctx));
       }
 
-      // WebSocket streaming for task logs
+      // WebSocket streaming — no CORS wrapping needed for WS upgrades
       if (
         url.pathname.match(/^\/tasks\/[\w-]+\/stream$/) &&
         request.headers.get("Upgrade") === "websocket"
@@ -179,19 +203,19 @@ export default {
 
       // Usage / cost tracking
       if (url.pathname === "/usage" && request.method === "GET") {
-        return handleUsage(url, env);
+        return withCors(await handleUsage(url, env));
       }
 
-      return Response.json({ error: "Not found" }, { status: 404 });
+      return withCors(Response.json({ error: "Not found" }, { status: 404 }));
     } catch (err) {
       console.error("Unhandled error:", err);
-      return Response.json(
+      return withCors(Response.json(
         {
           error: "internal_error",
           message: err instanceof Error ? err.message : "Unknown error",
         },
         { status: 500 }
-      );
+      ));
     }
   },
 } satisfies ExportedHandler<Env>;

@@ -1,4 +1,56 @@
 {
   "version": 1,
-  "bugs": []
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-04-26T08:32:04.360Z",
+      "error_message": "Missing await",
+      "file": "src/index.ts",
+      "root_cause": "Async call without await — returned Promise instead of value",
+      "fix": "Added await to async call",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-26T08:32:04.360Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-04-27T00:00:00.000Z",
+      "error_message": "Error: spawn /app/node_modules/@cloudflare/workerd-linux-64/bin/workerd ENOENT",
+      "file": "docker-compose.dev.yml",
+      "root_cause": "Named volume `node_modules:/app/node_modules` overwrites the image-baked node_modules (built by `npm ci` inside Linux). The volume contains stale or host-platform binaries (Windows/macOS workerd), so workerd-linux-64 is missing at runtime.",
+      "fix": "Removed the named volume mount for node_modules. Container now uses its own image-layer node_modules which contains the correct Linux binaries. Also removed the top-level `volumes: node_modules:` declaration.",
+      "tags": [
+        "docker",
+        "workerd",
+        "node_modules",
+        "volume",
+        "ENOENT",
+        "wrangler"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-04-27T00:00:00.000Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-04-27T09:27:38.697Z",
+      "error_message": "Incorrect value in code",
+      "file": "Dockerfile",
+      "root_cause": "Had \"/sbin/tini\"",
+      "fix": "Changed to \"/usr/bin/tini\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "unknown"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-04-27T09:27:38.697Z"
+    }
+  ]
 }

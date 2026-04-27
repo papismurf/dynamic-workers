@@ -49,6 +49,7 @@ cp .env.example .dev.vars
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+
 ```
 
 The Worker is now reachable at `http://localhost:8787`. Smoke-test it:
@@ -80,6 +81,9 @@ docker compose -f docker-compose.yml -f docker-compose.dev.yml down
 
 # Full reset (drops node_modules + wrangler state volumes)
 docker compose -f docker-compose.yml -f docker-compose.dev.yml down -v
+
+# Rebuild both images and start
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 ```
 
 ---
