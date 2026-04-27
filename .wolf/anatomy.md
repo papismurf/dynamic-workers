@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-04-27T09:27:38.664Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-04-27T13:11:28.059Z
 > Files: 145 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../../../../../home/brown/.claude/plans/
@@ -186,11 +186,11 @@
 
 ## src/agents/
 
-- `codegen.ts` — CodeGen Agent — generates new code from a natural language spec and file context. (~1739 tok)
-- `review.ts` — Review Agent — performs code review, identifies bugs, suggests improvements. (~1914 tok)
+- `codegen.ts` — CodeGen Agent — generates new code from a natural language spec and file context. (~1990 tok)
+- `review.ts` — Review Agent — performs code review, identifies bugs, suggests improvements. (~2244 tok)
 - `source.test.ts` — Agent source registry: each AgentType maps to the right embedded source (~404 tok)
-- `source.ts` — Agent source code registry — returns the TypeScript source for each agent type. (~3610 tok)
-- `test.ts` — Test Agent — writes and validates unit/integration tests. (~1898 tok)
+- `source.ts` — Agent source code registry — returns the TypeScript source for each agent type. (~4536 tok)
+- `test.ts` — Test Agent — writes and validates unit/integration tests. (~2197 tok)
 
 ## src/bindings/
 

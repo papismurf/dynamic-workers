@@ -12,6 +12,9 @@
 
 - **Project:** agent-orchestrator
 - **Description:** AI Agent Orchestration Platform on Cloudflare Dynamic Workers
+- **Agent domain expertise:** All agents (CodeGen, Test, Review) are configured for Python + Plotly Dash + Flask + FastAPI + ClickHouse. System prompts updated in both `src/agents/source.ts` (runtime embedded strings) and the individual reference `.ts` files.
+- **Two places to update agent prompts:** `source.ts` contains the actual runtime embedded source (escaped backticks as `\\\``). The individual `codegen.ts`, `test.ts`, `review.ts` files are typed reference implementations — both must be kept in sync.
+- **Test framework detection:** TestAgent checks for `requirements.txt` / `pyproject.toml` first (→ pytest), then falls back to `package.json` (→ vitest/jest/mocha). Default is now `pytest`.
 
 ## Do-Not-Repeat
 
