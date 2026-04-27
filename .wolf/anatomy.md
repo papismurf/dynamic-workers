@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-04-27T13:11:28.059Z
-> Files: 145 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-04-27T13:19:12.118Z
+> Files: 146 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../../../../../home/brown/.claude/plans/
 
@@ -25,6 +25,7 @@
 - `README.md` — Project documentation (~2817 tok)
 - `tsconfig.json` — TypeScript configuration (~142 tok)
 - `tsconfig.test.json` — /*.ts", (~140 tok)
+- `WALKTHROUGH.md` — Walkthrough: Adding a DataTable Feature to a Plotly Dash App (~3316 tok)
 - `wrangler.jsonc` (~392 tok)
 
 ## .claude/
