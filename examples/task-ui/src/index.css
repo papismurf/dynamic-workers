@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Smooth scrolling for log terminal */
+.log-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Diff highlighting via highlight.js — import theme here so Tailwind purge sees it */
+@import 'highlight.js/styles/github-dark.min.css';
