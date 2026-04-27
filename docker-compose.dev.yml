@@ -28,9 +28,19 @@ services:
       # .dev.vars is wrangler's local secrets file. Mounted read-only so a
       # misbehaving dep can't rewrite it.
       - ./.dev.vars:/app/.dev.vars:ro
-      # Named volume for node_modules so host and container don't fight over
-      # platform-specific binaries (esbuild, etc.).
-      - node_modules:/app/node_modules
+      # node_modules is intentionally NOT mounted. The image runs `npm ci`
+      # inside Linux so it contains the correct platform binaries (workerd-linux-64).
+      # Mounting a host or named volume here would overwrite those binaries with
+      # Windows/macOS builds and cause ENOENT on workerd startup.
 
-volumes:
-  node_modules:
+  task-ui:
+    build:
+      context: ./examples/task-ui
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      # Browser-side calls go to localhost:8787 (host-mapped orchestrator port)
+      - VITE_ORCHESTRATOR_URL=http://localhost:8787
+    depends_on:
+      - orchestrator

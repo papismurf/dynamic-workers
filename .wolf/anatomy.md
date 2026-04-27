@@ -1,7 +1,11 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-04-23T20:26:46.735Z
-> Files: 101 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-04-27T09:27:38.664Z
+> Files: 145 tracked | Anatomy hits: 0 | Misses: 0
+
+## ../../../../../../../../home/brown/.claude/plans/
+
+- `shiny-knitting-stream.md` — Plan: Docker Compose full-stack restart (orchestrator + task-ui) (~650 tok)
 
 ## ./
 
@@ -9,10 +13,10 @@
 - `.dockerignore` — Docker ignore rules (~41 tok)
 - `.gitignore` — Git ignore rules (~19 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
-- `docker-compose.dev.yml` — Development override — runs `wrangler dev` with hot reload. (~379 tok)
+- `docker-compose.dev.yml` — Development override — runs `wrangler dev` with hot reload. (~498 tok)
 - `docker-compose.prod.yml` — Production override — runs `wrangler deploy` against Cloudflare. (~411 tok)
 - `docker-compose.yml` — Docker Compose services (~231 tok)
-- `Dockerfile` — Docker container definition (~478 tok)
+- `Dockerfile` — Docker container definition (~502 tok)
 - `jest.config.ts` — Jest test configuration (~901 tok)
 - `LICENSE` — Project license (~4296 tok)
 - `package-lock.json` — npm lock file (~55962 tok)
@@ -106,13 +110,74 @@
 
 - `terminal.html` — Crypto Terminal — Dynamic Workers (~3560 tok)
 
+## examples/task-ui/
+
+- `.dockerignore` (~7 tok)
+- `.env.example` — VITE_ORCHESTRATOR_URL env variable (~71 tok)
+- `Dockerfile` — Docker container definition (~45 tok)
+- `index.html` — SPA entry point (~131 tok)
+- `index.html` — Dynamic Workers — Task UI (~131 tok)
+- `package.json` — Vite+React19+TS task UI; deps: tanstack-query, react-hook-form, zod, hljs, react-router (~218 tok)
+- `package.json` — Node.js package manifest (~218 tok)
+- `README.md` — Setup, CORS options, env vars, project structure (~782 tok)
+- `README.md` — Project documentation (~733 tok)
+- `tsconfig.json` — TypeScript strict config targeting ES2020 (~129 tok)
+- `tsconfig.json` — TypeScript configuration (~129 tok)
+- `vite.config.ts` — https://vite.dev/config/ (~177 tok)
+- `vite.config.ts` — https://vite.dev/config/ (~172 tok)
+
+## examples/task-ui/src/
+
+- `App.tsx` — QueryClientProvider + BrowserRouter; manages recentTaskIds state across routes (~370 tok)
+- `App.tsx` — queryClient (~370 tok)
+- `index.css` — @import "tailwindcss" + highlight.js github-dark theme import (~71 tok)
+- `index.css` — Styles: 3 rules (~71 tok)
+- `main.tsx` — React 19 createRoot entry (~85 tok)
+- `main.tsx` — root (~85 tok)
+
+## examples/task-ui/src/api/
+
+- `client.ts` — Typed fetch wrappers: submitTasks, getTask, submitReview, getUsage, getWsBase (~480 tok)
+- `client.ts` — Derive the WebSocket base URL from the HTTP base URL. (~480 tok)
+- `types.ts` — All shared types mirroring src/types.ts: AgentType, TaskState, LogEntry, ReviewDecision, etc. (~735 tok)
+- `types.ts` — Mirrors src/types.ts from the orchestrator Worker. (~735 tok)
+
+## examples/task-ui/src/components/
+
+- `LogStream.tsx` — Terminal-style log viewer: auto-scroll, copy-all, level colorization, connected indicator (~1187 tok)
+- `LogStream.tsx` — LEVEL_COLORS (~1187 tok)
+- `ReviewPanel.tsx` — Human-in-the-loop panel: approve/reject/revise with highlight.js diff viewer (~2447 tok)
+- `ReviewPanel.tsx` — DiffViewer (~2447 tok)
+- `TaskCard.tsx` — Live task status card: subtask list, cost, color-coded badges, PR link; exports TaskCardSkeleton (~2006 tok)
+- `TaskCard.tsx` — When true, shows a "View details" link. Set to false on the TaskPage itself. (~2006 tok)
+- `TaskForm.tsx` — Task submission form: description, agentType select, repo fields, file editor, advanced accordion (~4520 tok)
+- `TaskForm.tsx` — --------------------------------------------------------------------------- (~4520 tok)
+- `UsageSidebar.tsx` — Token/cost summary sidebar; polls /usage 30s; today/7days/all time filter (~1122 tok)
+- `UsageSidebar.tsx` — FILTER_LABELS (~1122 tok)
+
+## examples/task-ui/src/hooks/
+
+- `useTask.ts` — useQuery for GET /tasks/:id; polls 2s while active status, stops on terminal status (~204 tok)
+- `useTask.ts` — Exports useTask (~204 tok)
+- `useTaskStream.ts` — WebSocket hook for /tasks/:id/stream; exponential backoff, 500-line cap, mounted guard (~704 tok)
+- `useTaskStream.ts` — Exports useTaskStream (~704 tok)
+- `useUsage.ts` — useQuery for GET /usage with TimeFilter (today/7days/all), 30s refetch interval (~161 tok)
+- `useUsage.ts` — Exports TimeFilter, useUsage (~161 tok)
+
+## examples/task-ui/src/pages/
+
+- `HomePage.tsx` — Split layout: TaskForm left, task list + UsageSidebar right; includes TaskLookup widget (~1542 tok)
+- `HomePage.tsx` — --------------------------------------------------------------------------- (~1542 tok)
+- `TaskPage.tsx` — Task detail page: TaskCard + LogStream + ReviewPanel + per-subtask results panel (~2387 tok)
+- `TaskPage.tsx` — ErrorBanner (~2387 tok)
+
 ## src/
 
 - `env.d.ts` — Declares Env (~218 tok)
 - `gateway.test.ts` — HttpGateway tests. These exercise the egress allow-list, credential (~1622 tok)
 - `gateway.ts` — HttpGateway — intercepts every outbound fetch() and connect() from (~817 tok)
 - `index.test.ts` — Router tests for the orchestrator Worker. These drive default.fetch() (~3028 tok)
-- `index.ts` — Agent Orchestrator — main entry point. (~6527 tok)
+- `index.ts` — Agent Orchestrator — main entry point. (~6823 tok)
 - `observability.test.ts` — LogSession + DynamicWorkerTail tests. (~1844 tok)
 - `observability.ts` — API routes: GET (1 endpoints) (~1264 tok)
 - `state.test.ts` — TaskManager + CostTracker DO tests. The in-memory storage fake from (~3216 tok)

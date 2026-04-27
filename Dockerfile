@@ -3,8 +3,10 @@
 # ---------- base ----------
 # Shared base: pinned Node + system deps wrangler needs (git for git bindings,
 # tini for PID 1 signal handling, ca-certificates for HTTPS to Cloudflare).
-FROM node:20-alpine AS base
-RUN apk add --no-cache git tini ca-certificates
+FROM node:20-slim AS base
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git tini ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 ENV CI=true \
     NPM_CONFIG_FUND=false \
@@ -26,7 +28,7 @@ RUN --mount=type=cache,target=/root/.npm \
 FROM deps AS dev
 COPY . .
 EXPOSE 8787
-ENTRYPOINT ["/sbin/tini", "--"]
+ENTRYPOINT ["/usr/bin/tini", "--"]
 # --ip 0.0.0.0 is required so the port is reachable from the host, not just
 # the container's loopback.
 CMD ["npx", "wrangler", "dev", "--ip", "0.0.0.0", "--port", "8787"]
@@ -46,5 +48,5 @@ RUN npm run typecheck
 # cannot be deployed.
 FROM deps AS prod
 COPY --from=typecheck /app /app
-ENTRYPOINT ["/sbin/tini", "--"]
+ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["npx", "wrangler", "deploy"]
