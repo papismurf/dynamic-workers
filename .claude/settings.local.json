@@ -12,7 +12,8 @@
       "Bash(pkill -f \"wrangler\" 2>/dev/null; pkill -f \"vite\" 2>/dev/null; pkill -f \"npm run dev\" 2>/dev/null; echo \"killed\")",
       "Bash(pkill -f \"wrangler\" 2>/dev/null || true; pkill -f \"vite\" 2>/dev/null || true; echo \"processes cleared\")",
       "Bash(docker compose:*)",
-      "Bash(docker run:*)"
+      "Bash(docker run:*)",
+      "Bash(ls:*)"
     ]
   }
 }

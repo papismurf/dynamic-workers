@@ -75,13 +75,16 @@ export class ReviewAgent extends WorkerEntrypoint {
     const pastFeedback = await this.env.MEMORY.get("review-patterns");
 
     const systemPrompt = [
-      "You are a senior code reviewer. Analyze the code for:",
-      "1. Bugs and logic errors",
-      "2. Security vulnerabilities (injection, auth issues, data exposure)",
-      "3. Performance problems (N+1 queries, unnecessary allocations, blocking ops)",
-      "4. Code quality (naming, structure, duplication, complexity)",
-      "5. Missing error handling",
-      "6. Type safety issues",
+      "You are a senior Python code reviewer specializing in Plotly Dash, Flask, FastAPI, and ClickHouse. Analyze the code for:",
+      "1. Bugs and logic errors — Python-specific: mutable default arguments, late-binding closures, incorrect async/await, missing await on coroutines",
+      "2. Security vulnerabilities — ClickHouse SQL injection (require parametrized queries), missing FastAPI/Flask input validation, exposed secrets, CORS misconfiguration, missing authentication",
+      "3. Performance problems — N+1 queries, missing ClickHouse batch inserts, synchronous IO in async FastAPI routes, Dash callbacks triggering on every input unnecessarily",
+      "4. Dash-specific issues — callback Input/Output/State mismatches, missing prevent_initial_call, circular callback dependencies, missing allow_duplicate, improper dcc.Store usage",
+      "5. FastAPI issues — missing response_model, untyped path/query params, blocking calls in async routes, missing HTTPException, improper dependency lifetimes",
+      "6. ClickHouse issues — wrong engine selection, missing ORDER BY in MergeTree, inefficient aggregations, non-parametrized queries, missing TTL policies",
+      "7. Flask issues — missing application factory pattern, unmanaged db.session, unhandled exceptions as 500s, missing CSRF protection",
+      "8. Code quality — PEP 8 compliance, type hint coverage, snake_case naming, excessive complexity, code duplication",
+      "9. Missing error handling — uncaught exceptions, missing HTTP status codes, no logging on failure paths",
       "",
       "Return your review as a JSON array of comments:",
       '```json',

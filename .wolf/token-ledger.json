@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-04-23T20:26:46.638Z",
   "lifetime": {
-    "total_tokens_estimated": 168780,
-    "total_reads": 36,
-    "total_writes": 126,
-    "total_sessions": 2,
-    "anatomy_hits": 30,
-    "anatomy_misses": 0,
-    "repeated_reads_blocked": 5,
-    "estimated_savings_vs_bare_cli": 8354
+    "total_tokens_estimated": 218752,
+    "total_reads": 64,
+    "total_writes": 155,
+    "total_sessions": 4,
+    "anatomy_hits": 56,
+    "anatomy_misses": 2,
+    "repeated_reads_blocked": 9,
+    "estimated_savings_vs_bare_cli": 15442
   },
   "sessions": [
     {
@@ -1025,6 +1025,385 @@
         "writes_count": 7,
         "repeated_reads_blocked": 2,
         "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-04-26-2002",
+      "started": "2026-04-26T19:02:51.922Z",
+      "ended": "2026-04-27T13:13:05.272Z",
+      "reads": [
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 466,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/vite.config.ts",
+          "tokens_estimated": 172,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/Dockerfile",
+          "tokens_estimated": 478,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/docker-compose.yml",
+          "tokens_estimated": 231,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/source.ts",
+          "tokens_estimated": 3610,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/types.ts",
+          "tokens_estimated": 1708,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 1739,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 1898,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 1914,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/Dockerfile",
+          "tokens_estimated": 48,
+          "action": "create"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/.dockerignore",
+          "tokens_estimated": 7,
+          "action": "create"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/vite.config.ts",
+          "tokens_estimated": 13,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 94,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 219,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/Dockerfile",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/Dockerfile",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/source.ts",
+          "tokens_estimated": 406,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/source.ts",
+          "tokens_estimated": 592,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/source.ts",
+          "tokens_estimated": 498,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 378,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 240,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 364,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 450,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 12216,
+        "output_tokens_estimated": 3365,
+        "reads_count": 9,
+        "writes_count": 14,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 9
+      }
+    },
+    {
+      "id": "session-2026-04-26-2002",
+      "started": "2026-04-26T19:02:51.922Z",
+      "ended": "2026-04-27T13:21:51.798Z",
+      "reads": [
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 466,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/vite.config.ts",
+          "tokens_estimated": 172,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/Dockerfile",
+          "tokens_estimated": 478,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/docker-compose.yml",
+          "tokens_estimated": 231,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/source.ts",
+          "tokens_estimated": 3610,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/types.ts",
+          "tokens_estimated": 1708,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 1739,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 1898,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 1914,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/src/pages/HomePage.tsx",
+          "tokens_estimated": 1542,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/src/components/TaskForm.tsx",
+          "tokens_estimated": 4520,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/src/pages/TaskPage.tsx",
+          "tokens_estimated": 2387,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/src/components/TaskCard.tsx",
+          "tokens_estimated": 2006,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/src/components/ReviewPanel.tsx",
+          "tokens_estimated": 2447,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/src/components/UsageSidebar.tsx",
+          "tokens_estimated": 1122,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/Dockerfile",
+          "tokens_estimated": 48,
+          "action": "create"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/.dockerignore",
+          "tokens_estimated": 7,
+          "action": "create"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/examples/task-ui/vite.config.ts",
+          "tokens_estimated": 13,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 94,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 219,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/Dockerfile",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/Dockerfile",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/source.ts",
+          "tokens_estimated": 406,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/source.ts",
+          "tokens_estimated": 592,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/source.ts",
+          "tokens_estimated": 498,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 378,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 240,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 364,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 450,
+          "action": "edit"
+        },
+        {
+          "file": "/mnt/c/Users/brown/OneDrive/Documents/GitHub/dynamic-workers/WALKTHROUGH.md",
+          "tokens_estimated": 3790,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 26240,
+        "output_tokens_estimated": 7155,
+        "reads_count": 15,
+        "writes_count": 15,
+        "repeated_reads_blocked": 2,
+        "anatomy_lookups": 15
+      }
+    },
+    {
+      "id": "session-2026-04-28-1135",
+      "started": "2026-04-28T10:35:11.822Z",
+      "ended": "2026-04-28T10:36:20.276Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 498,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 498,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-04-28-1135",
+      "started": "2026-04-28T10:35:11.822Z",
+      "ended": "2026-04-28T10:36:42.615Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 498,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 498,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
       }
     }
   ],

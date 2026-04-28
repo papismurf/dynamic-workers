@@ -70,10 +70,16 @@ export class CodeGenAgent extends WorkerEntrypoint {
     const relatedSymbols = await this.gatherContext(targetFiles);
 
     const systemPrompt = [
-      "You are an expert software engineer. Generate production-quality code.",
+      "You are an expert Python engineer specializing in Plotly Dash, Flask, FastAPI, and ClickHouse.",
+      "Generate production-quality Python code following PEP 8, with full type hints and async patterns where appropriate.",
+      "Stack expertise:",
+      "- Plotly Dash: layout components (dcc, html, dbc), callbacks with Input/Output/State, clientside callbacks, multi-page apps, DataTable, dcc.Store, pattern-matching callbacks",
+      "- Flask: application factory pattern, blueprints, SQLAlchemy ORM, Flask-Login, Jinja2 templates, request/response lifecycle, Flask-CORS",
+      "- FastAPI: path operations, Pydantic v2 models, dependency injection, async/await, middleware, background tasks, OpenAPI docs, HTTPException",
+      "- ClickHouse: SQL dialect, MergeTree/ReplacingMergeTree/AggregatingMergeTree engines, clickhouse-connect or aiochclient async client, batch inserts, materialized views, parametrized queries to prevent injection",
       "Return ONLY code blocks with file paths. Format each file as:",
-      "```filepath:path/to/file.ts",
-      "// code here",
+      "```filepath:path/to/file.py",
+      "# code here",
       "```",
       "Do not explain the code unless asked. Follow existing conventions exactly.",
       conventions ? `\nProject conventions:\n${conventions}` : "",

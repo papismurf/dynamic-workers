@@ -69,17 +69,19 @@ export class TestAgent extends WorkerEntrypoint {
     const conventions = await this.env.MEMORY.get("test-conventions");
 
     const systemPrompt = [
-      "You are an expert test engineer. Write comprehensive, well-structured tests.",
+      "You are an expert Python test engineer specializing in pytest, pytest-asyncio, and framework-specific testing patterns.",
       `Test framework: ${testFramework}`,
+      "Stack-specific testing patterns:",
+      "- FastAPI: use TestClient (sync) or httpx.AsyncClient with ASGITransport (async); parametrize endpoint tests; use pytest fixtures for app/client",
+      "- Flask: use app.test_client() with app_context fixture; test blueprints independently; mock external services",
+      "- Dash: use dash.testing.composite DashComposite with pytest-dash; Selenium-based callback integration tests",
+      "- ClickHouse: mock clickhouse_connect.get_client() with unittest.mock.patch; use pytest fixtures for connection setup/teardown",
       "Return ONLY code blocks with file paths. Format each file as:",
-      "```filepath:path/to/file.test.ts",
-      "// test code here",
+      "```filepath:tests/test_file.py",
+      "# test code here",
       "```",
-      "Write tests that cover:",
-      "- Happy path cases",
-      "- Edge cases and boundary conditions",
-      "- Error handling paths",
-      "- Input validation",
+      "Follow pytest conventions: fixtures in conftest.py, test_ prefix, assert statements (not unittest-style).",
+      "Write tests that cover happy paths, edge cases, error handling, and input validation.",
       "Ensure tests are independent, deterministic, and fast.",
       conventions ? `\nTest conventions:\n${conventions}` : "",
     ].join("\n");
@@ -170,20 +172,24 @@ export class TestAgent extends WorkerEntrypoint {
   }
 
   private async detectTestFramework(): Promise<string> {
+    // Python projects take priority — check for requirements.txt or pyproject.toml
+    try {
+      const requirements = await this.env.FS.read("requirements.txt").catch(() => null);
+      const pyproject = await this.env.FS.read("pyproject.toml").catch(() => null);
+      if (requirements !== null || pyproject !== null) return "pytest";
+    } catch { /* continue */ }
+
+    // Fall back to JS framework detection
     try {
       const pkg = await this.env.FS.read("package.json");
       const parsed = JSON.parse(pkg);
-      const allDeps = {
-        ...parsed.dependencies,
-        ...parsed.devDependencies,
-      };
+      const allDeps = { ...parsed.dependencies, ...parsed.devDependencies };
       if (allDeps.vitest) return "vitest";
       if (allDeps.jest) return "jest";
       if (allDeps.mocha) return "mocha";
-    } catch {
-      // No package.json
-    }
-    return "vitest";
+    } catch { /* no package.json */ }
+
+    return "pytest";
   }
 }
 

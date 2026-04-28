@@ -48,10 +48,16 @@ export class CodeGenAgent extends WorkerEntrypoint {
 
     const conventions = await this.env.MEMORY?.get?.("coding-conventions").catch(() => null);
     const systemPrompt = [
-      "You are an expert software engineer. Generate production-quality code.",
+      "You are an expert Python engineer specializing in Plotly Dash, Flask, FastAPI, and ClickHouse.",
+      "Generate production-quality Python code following PEP 8, with full type hints and async patterns where appropriate.",
+      "Stack expertise:",
+      "- Plotly Dash: layout components (dcc, html, dbc), callbacks with Input/Output/State, clientside callbacks, multi-page apps, DataTable, dcc.Store, pattern-matching callbacks",
+      "- Flask: application factory pattern, blueprints, SQLAlchemy ORM, Flask-Login, Jinja2 templates, request/response lifecycle, Flask-CORS",
+      "- FastAPI: path operations, Pydantic v2 models, dependency injection, async/await, middleware, background tasks, OpenAPI docs, HTTPException",
+      "- ClickHouse: SQL dialect, MergeTree/ReplacingMergeTree/AggregatingMergeTree engines, clickhouse-connect or aiochclient async client, batch inserts, materialized views, parametrized queries to prevent injection",
       "Return ONLY code blocks with file paths. Format each file as:",
-      "\\\`\\\`\\\`filepath:path/to/file.ts",
-      "// code here",
+      "\\\`\\\`\\\`filepath:path/to/file.py",
+      "# code here",
       "\\\`\\\`\\\`",
       "Do not explain the code unless asked. Follow existing conventions exactly.",
       conventions ? "\\nProject conventions:\\n" + conventions : "",
@@ -152,23 +158,35 @@ export class TestAgent extends WorkerEntrypoint {
     }
 
     const conventions = await this.env.MEMORY?.get?.("test-conventions").catch(() => null);
-    let testFramework = "vitest";
+    let testFramework = "pytest";
     try {
-      const pkg = await this.env.FS.read("package.json");
-      const parsed = JSON.parse(pkg);
-      const deps = { ...parsed.dependencies, ...parsed.devDependencies };
-      if (deps.vitest) testFramework = "vitest";
-      else if (deps.jest) testFramework = "jest";
-      else if (deps.mocha) testFramework = "mocha";
+      const requirements = await this.env.FS.read("requirements.txt").catch(() => null);
+      const pyproject = await this.env.FS.read("pyproject.toml").catch(() => null);
+      if (requirements !== null || pyproject !== null) {
+        testFramework = "pytest";
+      } else {
+        const pkg = await this.env.FS.read("package.json");
+        const parsed = JSON.parse(pkg);
+        const deps = { ...parsed.dependencies, ...parsed.devDependencies };
+        if (deps.vitest) testFramework = "vitest";
+        else if (deps.jest) testFramework = "jest";
+        else if (deps.mocha) testFramework = "mocha";
+      }
     } catch (e) {}
 
     const systemPrompt = [
-      "You are an expert test engineer. Write comprehensive, well-structured tests.",
+      "You are an expert Python test engineer specializing in pytest, pytest-asyncio, and framework-specific testing patterns.",
       "Test framework: " + testFramework,
+      "Stack-specific testing patterns:",
+      "- FastAPI: use TestClient (sync) or httpx.AsyncClient with ASGITransport (async); parametrize endpoint tests; use pytest fixtures for app/client",
+      "- Flask: use app.test_client() with app_context fixture; test blueprints independently; mock external services",
+      "- Dash: use dash.testing.composite DashComposite with pytest-dash; Selenium-based callback integration tests",
+      "- ClickHouse: mock clickhouse_connect.get_client() with unittest.mock.patch; use pytest fixtures for connection setup/teardown",
       "Return ONLY code blocks with file paths. Format each file as:",
-      "\\\`\\\`\\\`filepath:path/to/file.test.ts",
-      "// test code here",
+      "\\\`\\\`\\\`filepath:tests/test_file.py",
+      "# test code here",
       "\\\`\\\`\\\`",
+      "Follow pytest conventions: fixtures in conftest.py, test_ prefix, assert statements (not unittest-style).",
       "Write tests that cover happy paths, edge cases, error handling, and input validation.",
       "Ensure tests are independent, deterministic, and fast.",
       conventions ? "\\nTest conventions:\\n" + conventions : "",
@@ -270,13 +288,16 @@ export class ReviewAgent extends WorkerEntrypoint {
 
     const pastFeedback = await this.env.MEMORY?.get?.("review-patterns").catch(() => null);
     const systemPrompt = [
-      "You are a senior code reviewer. Analyze the code for:",
-      "1. Bugs and logic errors",
-      "2. Security vulnerabilities",
-      "3. Performance problems",
-      "4. Code quality (naming, structure, duplication, complexity)",
-      "5. Missing error handling",
-      "6. Type safety issues",
+      "You are a senior Python code reviewer specializing in Plotly Dash, Flask, FastAPI, and ClickHouse. Analyze the code for:",
+      "1. Bugs and logic errors — Python-specific: mutable default arguments, late-binding closures, incorrect async/await, missing await on coroutines",
+      "2. Security vulnerabilities — ClickHouse SQL injection (require parametrized queries), missing FastAPI/Flask input validation, exposed secrets, CORS misconfiguration, missing authentication",
+      "3. Performance problems — N+1 queries, missing ClickHouse batch inserts, synchronous IO in async FastAPI routes, Dash callbacks triggering on every input change unnecessarily",
+      "4. Dash-specific issues — callback Input/Output/State mismatches, missing prevent_initial_call, circular callback dependencies, missing allow_duplicate, improper use of dcc.Store",
+      "5. FastAPI issues — missing response_model, untyped path/query params, blocking calls in async routes, missing HTTPException handling, improper dependency lifetimes",
+      "6. ClickHouse issues — wrong engine selection, missing ORDER BY in MergeTree, inefficient GROUP BY/aggregations, not using parametrized queries, missing TTL policies",
+      "7. Flask issues — missing application factory pattern, raw db.session without context management, unhandled exceptions bubbling as 500s, missing CSRF protection",
+      "8. Code quality — PEP 8 compliance, type hint coverage, naming conventions (snake_case), excessive complexity, code duplication",
+      "9. Missing error handling — uncaught exceptions, missing HTTP status codes, no logging on failure paths",
       "",
       "Return your review as a JSON array of comments:",
       "\\\`\\\`\\\`json",
