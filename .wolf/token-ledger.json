@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-04-23T20:26:46.638Z",
   "lifetime": {
-    "total_tokens_estimated": 217756,
-    "total_reads": 60,
+    "total_tokens_estimated": 218752,
+    "total_reads": 64,
     "total_writes": 155,
-    "total_sessions": 2,
-    "anatomy_hits": 54,
-    "anatomy_misses": 0,
+    "total_sessions": 4,
+    "anatomy_hits": 56,
+    "anatomy_misses": 2,
     "repeated_reads_blocked": 9,
-    "estimated_savings_vs_bare_cli": 15042
+    "estimated_savings_vs_bare_cli": 15442
   },
   "sessions": [
     {
@@ -1348,6 +1348,62 @@
         "writes_count": 15,
         "repeated_reads_blocked": 2,
         "anatomy_lookups": 15
+      }
+    },
+    {
+      "id": "session-2026-04-28-1135",
+      "started": "2026-04-28T10:35:11.822Z",
+      "ended": "2026-04-28T10:36:20.276Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 498,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 498,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-04-28-1135",
+      "started": "2026-04-28T10:35:11.822Z",
+      "ended": "2026-04-28T10:36:42.615Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docker-compose.dev.yml",
+          "tokens_estimated": 498,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 498,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
       }
     }
   ],
