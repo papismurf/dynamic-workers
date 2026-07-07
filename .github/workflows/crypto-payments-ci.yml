@@ -25,7 +25,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          # Node >= 21 is required: the built-in test runner only expands glob
+          # patterns (src/**/*.test.ts) from that version onward.
+          node-version: "22"
 
       - name: Install dependencies
         run: npm ci || npm install
