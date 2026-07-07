@@ -1,0 +1,42 @@
+name: crypto-payments example CI
+
+# Quality gate for the platform-agnostic crypto-payments example.
+# Mirrors the Principal Software Engineer skill's gate: typecheck, tests, and a
+# dependency security audit. Scoped to the example so it stays green and fast.
+
+on:
+  push:
+    paths:
+      - "examples/crypto-payments/**"
+      - ".github/workflows/crypto-payments-ci.yml"
+  pull_request:
+    paths:
+      - "examples/crypto-payments/**"
+      - ".github/workflows/crypto-payments-ci.yml"
+
+jobs:
+  quality-gate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples/crypto-payments
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Node >= 21 is required: the built-in test runner only expands glob
+          # patterns (src/**/*.test.ts) from that version onward.
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Dependency security audit
+        run: npm audit --audit-level=high

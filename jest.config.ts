@@ -77,6 +77,8 @@ const config: Config = {
     "!src/agents/codegen.ts",
     "!src/agents/review.ts",
     "!src/agents/test.ts",
+    // Executable entry point for the local runtime — pure IO wiring.
+    "!src/local/main.ts",
   ],
   coverageDirectory: "coverage",
   coverageReporters: ["text", "lcov", "html"],
