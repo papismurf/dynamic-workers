@@ -3,6 +3,7 @@
  * semantics. fetch is stubbed via the route-matcher; jest fake timers advance
  * the exponential-backoff sleeps without real wall-clock waits.
  */
+import { jest } from "@jest/globals";
 import { LLM } from "./llm.js";
 import {
   createFetchMock,

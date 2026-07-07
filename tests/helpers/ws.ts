@@ -49,19 +49,11 @@ function createPair(): [WebSocket, FakeServerWebSocket] {
     },
   } as unknown as FakeServerWebSocket;
 
-  // The client half is never driven from tests — minimal stub.
-  const client = {
-    send() {},
-    close() {},
-    addEventListener() {},
-    removeEventListener() {},
-    dispatchEvent() {
-      return true;
-    },
-    readyState: 1,
-  } as unknown as WebSocket;
-
-  return [client, server];
+  // observability.ts returns the *client* half to the caller
+  // (`new Response({ webSocket: client })`) while keeping the server half
+  // internally. Tests inspect the returned socket's `sent`/`send`, so expose
+  // the same fake as both halves — the client is otherwise never driven.
+  return [server, server];
 }
 
 /**

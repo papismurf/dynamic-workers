@@ -397,7 +397,14 @@ async function executeTask(
               retries
             );
             if (retried) {
-              await taskDO.addResult(retried);
+              // Replace this subtask's failed result with the healed one (same
+              // subtask id) so allSucceeded() sees success and the task can
+              // proceed; fold the failed attempt's cost into the aggregate.
+              await taskDO.addResult({
+                ...retried,
+                subtaskId: subtask.id,
+                cost: sumCost(result.value.cost, retried.cost),
+              });
             }
           }
         } else {
@@ -783,5 +790,17 @@ function zeroCost(): CostBreakdown {
     estimatedCostUsd: 0,
     cpuTimeMs: 0,
     subrequests: 0,
+  };
+}
+
+/** Sum two cost breakdowns field-by-field (used when self-heal retries). */
+function sumCost(a: CostBreakdown, b: CostBreakdown): CostBreakdown {
+  return {
+    inputTokens: a.inputTokens + b.inputTokens,
+    outputTokens: a.outputTokens + b.outputTokens,
+    totalTokens: a.totalTokens + b.totalTokens,
+    estimatedCostUsd: a.estimatedCostUsd + b.estimatedCostUsd,
+    cpuTimeMs: a.cpuTimeMs + b.cpuTimeMs,
+    subrequests: a.subrequests + b.subrequests,
   };
 }
