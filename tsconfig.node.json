@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // The local server (src/local/**) runs on Node, not the Workers runtime,
+    // so it is type-checked with Node globals (http, Buffer, process) instead
+    // of @cloudflare/workers-types. The neutral core it imports is designed to
+    // compile under both.
+    "types": ["node"]
+  },
+  "include": ["src/local/**/*.ts"],
+  "exclude": ["node_modules", "src/**/*.test.ts"]
+}

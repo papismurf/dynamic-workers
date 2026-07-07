@@ -1,10 +1,5 @@
 import type { SubTask, TaskRequest } from "../types.js";
-
-const shortId = (): string =>
-  (globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`).slice(
-    0,
-    8
-  );
+import { shortId } from "./id.js";
 
 /**
  * Break a task request into a dependency graph of subtasks. Pure and
