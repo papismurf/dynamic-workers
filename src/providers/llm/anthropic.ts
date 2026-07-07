@@ -16,14 +16,17 @@ export class AnthropicProvider implements LlmProvider {
   readonly label = "Anthropic";
 
   private readonly baseUrl: string;
+  private readonly fetchImpl: typeof fetch;
 
   constructor(
     private readonly apiKey: string,
     private readonly model: string,
-    baseUrl: string = DEFAULT_BASE_URL
+    baseUrl: string = DEFAULT_BASE_URL,
+    fetchImpl: typeof fetch = fetch
   ) {
     // Normalize so a configured baseUrl with a trailing slash doesn't yield `//`.
     this.baseUrl = baseUrl.replace(/\/+$/, "");
+    this.fetchImpl = fetchImpl;
   }
 
   async chat(params: ChatParams): Promise<ChatResponse> {
@@ -46,7 +49,7 @@ export class AnthropicProvider implements LlmProvider {
       body.stop_sequences = params.stop;
     }
 
-    const resp = await fetch(`${this.baseUrl}/v1/messages`, {
+    const resp = await this.fetchImpl(`${this.baseUrl}/v1/messages`, {
       method: "POST",
       headers: {
         "x-api-key": this.apiKey,

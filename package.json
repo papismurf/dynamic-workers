@@ -6,6 +6,8 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "wrangler dev",
+    "dev:local": "tsx watch src/local/main.ts",
+    "start:local": "tsx src/local/main.ts",
     "deploy": "wrangler deploy",
     "types": "wrangler types src/env.d.ts --include-runtime false",
     "typecheck": "tsc --noEmit",
@@ -30,6 +32,8 @@
     "@types/ws": "^8.5.13",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.0",
     "typescript": "^5.7.0",
     "undici": "^6.21.0",
     "wrangler": "^4.80.0",

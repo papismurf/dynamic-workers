@@ -15,16 +15,19 @@ import type {
  */
 export class OpenAiCompatibleProvider implements LlmProvider {
   private readonly baseUrl: string;
+  private readonly fetchImpl: typeof fetch;
 
   constructor(
     readonly id: string,
     readonly label: string,
     private readonly apiKey: string,
     private readonly model: string,
-    baseUrl: string
+    baseUrl: string,
+    fetchImpl: typeof fetch = fetch
   ) {
     // Normalize so a configured baseUrl with a trailing slash doesn't yield `//`.
     this.baseUrl = baseUrl.replace(/\/+$/, "");
+    this.fetchImpl = fetchImpl;
   }
 
   async chat(params: ChatParams): Promise<ChatResponse> {
@@ -52,7 +55,7 @@ export class OpenAiCompatibleProvider implements LlmProvider {
       headers.Authorization = `Bearer ${this.apiKey}`;
     }
 
-    const resp = await fetch(`${this.baseUrl}/chat/completions`, {
+    const resp = await this.fetchImpl(`${this.baseUrl}/chat/completions`, {
       method: "POST",
       headers,
       body: JSON.stringify(body),

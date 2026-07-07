@@ -50,4 +50,9 @@ export interface LlmProviderConfig {
   model: string;
   /** Override the API base URL (required for self-hosted / OpenAI-compatible). */
   baseUrl?: string;
+  /**
+   * Injectable fetch. The local runtime passes an egress-guarded fetch here so
+   * the domain allowlist is enforced on the actual network call.
+   */
+  fetchImpl?: typeof fetch;
 }

@@ -19,7 +19,8 @@ export function createLlmProvider(config: LlmProviderConfig): LlmProvider {
       return new AnthropicProvider(
         config.apiKey,
         config.model,
-        config.baseUrl
+        config.baseUrl,
+        config.fetchImpl
       );
 
     case "openai":
@@ -28,7 +29,8 @@ export function createLlmProvider(config: LlmProviderConfig): LlmProvider {
         "OpenAI",
         config.apiKey,
         config.model,
-        config.baseUrl ?? OPENAI_BASE_URL
+        config.baseUrl ?? OPENAI_BASE_URL,
+        config.fetchImpl
       );
 
     case "deepseek":
@@ -37,7 +39,8 @@ export function createLlmProvider(config: LlmProviderConfig): LlmProvider {
         "DeepSeek",
         config.apiKey,
         config.model,
-        config.baseUrl ?? DEEPSEEK_BASE_URL
+        config.baseUrl ?? DEEPSEEK_BASE_URL,
+        config.fetchImpl
       );
 
     case "openai-compatible":
@@ -56,7 +59,8 @@ export function createLlmProvider(config: LlmProviderConfig): LlmProvider {
         provider,
         config.apiKey,
         config.model,
-        config.baseUrl
+        config.baseUrl,
+        config.fetchImpl
       );
     }
 
