@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-04-27T09:27:38.664Z
-> Files: 145 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-07T21:40:05.345Z
+> Files: 195 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../../../../../home/brown/.claude/plans/
 
@@ -17,10 +17,10 @@
 - `docker-compose.prod.yml` — Production override — runs `wrangler deploy` against Cloudflare. (~411 tok)
 - `docker-compose.yml` — Docker Compose services (~231 tok)
 - `Dockerfile` — Docker container definition (~502 tok)
-- `jest.config.ts` — Jest test configuration (~901 tok)
+- `jest.config.ts` — Jest configuration for the Agent Orchestrator test suite. (~929 tok)
 - `LICENSE` — Project license (~4296 tok)
 - `package-lock.json` — npm lock file (~55962 tok)
-- `package.json` — Node.js package manifest (~410 tok)
+- `package.json` — Node.js package manifest (~450 tok)
 - `playwright.config.ts` — Playwright test configuration (~686 tok)
 - `README.md` — Project documentation (~2817 tok)
 - `tsconfig.json` — TypeScript configuration (~142 tok)
@@ -40,6 +40,7 @@
 
 - `claude-code-review.yml` — /*.ts" (~422 tok)
 - `claude.yml` — CI: Claude Code (~554 tok)
+- `crypto-payments-ci.yml` — CI: crypto-payments example CI (~327 tok)
 
 ## .wrangler/state/v3/cache/miniflare-CacheObject/
 
@@ -85,6 +86,35 @@
 - `docker.md` — Docker & Docker Compose (~1638 tok)
 - `research-brief.md` — Research Brief: Cloudflare Dynamic Workers (~2468 tok)
 - `security.md` — Security Model (~1610 tok)
+- `technical-summary.md` — Technical Summary — Platform-Agnostic Orchestrator + Crypto-Payments Example (~1533 tok)
+
+## examples/crypto-payments/
+
+- `package.json` — Node.js package manifest (~145 tok)
+- `README.md` — Project documentation (~1176 tok)
+- `tsconfig.json` — TypeScript configuration (~116 tok)
+
+## examples/crypto-payments/src/
+
+- `config.ts` — Exports AppConfig, loadConfig (~364 tok)
+- `crypto.ts` — Compute a hex HMAC-SHA256 of `payload` with `secret`. (~201 tok)
+- `main.ts` — Executable entry point for the crypto-payments example. (~202 tok)
+- `money.test.ts` (~310 tok)
+- `money.ts` — Currency-aware conversion between integer minor units and the decimal (~503 tok)
+- `payment-service.test.ts` — Declares service (~488 tok)
+- `payment-service.ts` — Thin application service over a {@link PaymentProvider}. All business logic (~550 tok)
+- `server.ts` — Provider-agnostic REST routing. Returns null for unknown routes. The webhook (~1314 tok)
+- `types.ts` — Payment domain types + the PaymentProvider port. (~868 tok)
+
+## examples/crypto-payments/src/providers/
+
+- `coinbase.ts` — Coinbase Commerce timeline status -> normalized status. (~1315 tok)
+- `mock.ts` — Deterministic, network-free provider for local demos and tests. Charges are (~765 tok)
+- `paypal.test.ts` — Build a fetch stub that routes by URL path. PayPal calls the OAuth token (~1107 tok)
+- `paypal.ts` — PayPal adapter using the Orders API v2. Unlike Stripe/Coinbase (local HMAC), (~1884 tok)
+- `registry.test.ts` — Declares provider (~1202 tok)
+- `registry.ts` — Build a {@link PaymentProvider} from an id + credentials. Adding a provider (~457 tok)
+- `stripe.ts` — Max age (seconds) allowed for a webhook timestamp; guards replay. (~1656 tok)
 
 ## examples/fastapi-crypto-terminal/
 
@@ -188,6 +218,7 @@
 
 - `codegen.ts` — CodeGen Agent — generates new code from a natural language spec and file context. (~1739 tok)
 - `review.ts` — Review Agent — performs code review, identifies bugs, suggests improvements. (~1914 tok)
+- `runners.ts` — In-process agent implementations (codegen / test / review). (~2302 tok)
 - `source.test.ts` — Agent source registry: each AgentType maps to the right embedded source (~404 tok)
 - `source.ts` — Agent source code registry — returns the TypeScript source for each agent type. (~3610 tok)
 - `test.ts` — Test Agent — writes and validates unit/integration tests. (~1898 tok)
@@ -199,11 +230,51 @@
 - `git.test.ts` — Git binding tests. The commit path chains four GitHub API calls (~1890 tok)
 - `git.ts` — Git RPC binding — exposes branch, commit, diff, push operations (~1843 tok)
 - `llm.test.ts` — LLM binding tests — provider routing, credential placement, retry/backoff (~1749 tok)
-- `llm.ts` — LLM RPC binding — wraps AI provider APIs with managed credentials, (~1452 tok)
+- `llm.ts` — Optional base URL override for OpenAI-compatible / self-hosted models. (~411 tok)
 - `memory.test.ts` — Memory binding tests — namespace scoping, TTL, list-prefix stripping. (~537 tok)
 - `memory.ts` — Memory RPC binding — persists learnings, conventions, and context (~385 tok)
 - `search.test.ts` — CodeSearch binding tests. Covers grep pattern assembly, glob-to-regex for (~1212 tok)
 - `search.ts` — CodeSearch RPC binding — search code, find files, and extract symbols (~1466 tok)
+
+## src/core/
+
+- `decompose.ts` — Break a task request into a dependency graph of subtasks. Pure and (~458 tok)
+- `memory-state-store.ts` — Non-durable, in-process StateStore for local dev, tests, and single-node (~905 tok)
+- `orchestrator.test.ts` — Orchestrator core tests — dependency-wave scheduling, self-heal, review (~2873 tok)
+- `orchestrator.ts` — Max agents allowed to run concurrently across all in-flight tasks. (~2603 tok)
+- `ports.ts` — Ports (interfaces) for the runtime-neutral orchestration core. Adapters live (~455 tok)
+- `semaphore.test.ts` — Declares sem (~312 tok)
+- `semaphore.ts` — Minimal counting semaphore used to bound how many agents run concurrently. (~309 tok)
+- `state-machine.ts` — Runtime-neutral task state-machine helpers. (~478 tok)
+
+## src/local/
+
+- `config.test.ts` — Declares cfg (~411 tok)
+- `config.ts` — Environment-driven configuration for the local (no-Cloudflare) runtime. (~398 tok)
+- `log-hub.ts` — In-process log sink + fan-out. The local counterpart of the Cloudflare (~336 tok)
+- `main.ts` — Executable entry point for the local (no-Cloudflare) runtime. (~71 tok)
+- `server.test.ts` — REST routing tests for the local server. Drives handleRest() directly with a (~1114 tok)
+- `server.ts` — Local HTTP server — the no-Cloudflare entry point. Exposes the same REST (~1720 tok)
+
+## src/providers/llm/
+
+- `anthropic.ts` — Anthropic Messages API adapter (`POST /v1/messages`). System messages are (~707 tok)
+- `index.ts` (~146 tok)
+- `openai-compatible.ts` — Adapter for any OpenAI Chat Completions-compatible endpoint (~702 tok)
+- `pricing.test.ts` (~239 tok)
+- `pricing.ts` — Per-model pricing table (USD per 1M tokens). Used to estimate cost from (~603 tok)
+- `registry.test.ts` — Provider registry + adapter tests. fetch is stubbed via the shared route (~1558 tok)
+- `registry.ts` — Build an {@link LlmProvider} from configuration. Adding a new provider is a (~623 tok)
+- `retry.test.ts` — Deterministic: inject a no-op sleep so no wall-clock time passes. (~382 tok)
+- `retry.ts` — HTTP status codes / substrings that indicate a transient, retryable error. (~479 tok)
+- `types.ts` — Provider-agnostic LLM layer. (~484 tok)
+
+## src/runtime/
+
+- `egress.test.ts` — API routes: GET (4 endpoints) (~524 tok)
+- `egress.ts` — Runtime-neutral egress policy: a domain allowlist plus credential injection. (~655 tok)
+- `local.test.ts` — LocalRuntime tests — verify an agent runs in-process against a stubbed LLM (~1157 tok)
+- `local.ts` — LocalRuntime — runs agents in-process against injected capability bindings. (~1540 tok)
 
 ## tests/e2e/
 
