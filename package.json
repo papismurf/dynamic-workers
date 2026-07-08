@@ -11,6 +11,8 @@
     "deploy": "wrangler deploy",
     "types": "wrangler types src/env.d.ts --include-runtime false",
     "typecheck": "tsc --noEmit",
+    "typecheck:test": "tsc --noEmit -p tsconfig.test.json",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json",
     "tail": "wrangler tail",
     "test": "npm run test:unit && npm run test:integration",
     "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js --selectProjects unit",
@@ -19,7 +21,7 @@
     "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:ci": "npm run typecheck && npm run test:coverage && npm run test:e2e"
+    "test:ci": "npm run typecheck && npm run typecheck:test && npm run typecheck:node && npm run test:coverage && npm run test:e2e"
   },
   "dependencies": {
     "@cloudflare/worker-bundler": "^0.0.4"

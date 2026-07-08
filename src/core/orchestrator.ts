@@ -10,6 +10,7 @@ import type {
 } from "../types.js";
 import type { AgentRuntime, StateStore } from "./ports.js";
 import { decomposeTask } from "./decompose.js";
+import { randomUUID } from "./id.js";
 import { Semaphore } from "./semaphore.js";
 import { aggregateCosts, zeroCost } from "./state-machine.js";
 
@@ -50,7 +51,7 @@ export class Orchestrator {
     this.semaphore = new Semaphore(opts.maxParallelAgents ?? 4);
     this.maxAgentRetries = opts.maxAgentRetries ?? 3;
     this.decompose = opts.decompose ?? decomposeTask;
-    this.uuid = opts.uuid ?? (() => globalThis.crypto.randomUUID());
+    this.uuid = opts.uuid ?? randomUUID;
   }
 
   /** Create a task and begin executing it in the background. Returns its id. */

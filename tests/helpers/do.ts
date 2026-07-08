@@ -12,9 +12,16 @@
 import type { DurableObject } from "cloudflare:workers";
 import { InMemoryStorage } from "./storage.js";
 
+// The fakes construct DOs with lightweight stand-ins for the ctx/env args,
+// so the constructor parameters are intentionally loose here. `unknown` can't
+// be used because constructor params are checked contravariantly under
+// strictFunctionTypes, which would reject the real `DurableObjectState`/`Env`
+// signatures.
 type DOConstructor<T extends DurableObject = DurableObject> = new (
-  ctx: unknown,
-  env: unknown
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ctx: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  env: any
 ) => T;
 
 export interface FakeDurableObjectNamespace<T extends DurableObject> extends DurableObjectNamespace {
@@ -56,6 +63,10 @@ export function createDONamespace<T extends DurableObject>(
       // Production code in index.ts coerces stubs into typed RPC objects —
       // we return the raw instance so method calls land on real code.
       return instance as unknown as DurableObjectStub;
+    },
+    getByName(name: string): DurableObjectStub {
+      // Mirrors the real DurableObjectNamespace.getByName shortcut.
+      return get(name) as unknown as DurableObjectStub;
     },
     jurisdiction(): FakeDurableObjectNamespace<T> {
       return ns;

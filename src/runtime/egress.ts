@@ -50,7 +50,12 @@ export class EgressPolicy {
    * credentials. Blocked hosts throw {@link EgressBlockedError}.
    */
   guardedFetch(baseFetch: typeof fetch = fetch): typeof fetch {
-    return (async (input: RequestInfo | URL, init?: RequestInit) => {
+    // Derive the arg types from `fetch` so this compiles under both the Worker
+    // and Node lib typings (which name the input type differently).
+    return (async (
+      input: Parameters<typeof fetch>[0],
+      init?: Parameters<typeof fetch>[1]
+    ) => {
       const request =
         input instanceof Request ? input : new Request(input, init);
       const url = new URL(request.url);

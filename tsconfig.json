@@ -15,5 +15,8 @@
     "jsx": "react-jsx"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  // Tests are type-checked by tsconfig.test.json; the Node-only local server
+  // (src/local/**) by tsconfig.node.json. This config is the Cloudflare Worker
+  // build surface only.
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/local/**"]
 }
