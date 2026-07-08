@@ -21,7 +21,8 @@ type WorkerResponseInit = ResponseInit & { webSocket?: unknown };
 const BaseResponse = globalThis.Response;
 
 class WorkerResponse extends BaseResponse {
-  readonly webSocket: unknown | null = null;
+  // Match the Workers `Response.webSocket` shape (`WebSocket | null`).
+  readonly webSocket: WebSocket | null = null;
 
   constructor(body?: BodyInit | null, init?: WorkerResponseInit) {
     const wantsUpgrade = init?.webSocket !== undefined || init?.status === 101;
@@ -34,7 +35,7 @@ class WorkerResponse extends BaseResponse {
         value: status ?? 101,
         configurable: true,
       });
-      this.webSocket = webSocket ?? null;
+      this.webSocket = (webSocket ?? null) as WebSocket | null;
     } else {
       super(body, init);
     }
