@@ -1,10 +1,15 @@
 # Agent Orchestrator
 
-An AI agent orchestration platform built on [Cloudflare Dynamic Workers](https://developers.cloudflare.com/dynamic-workers/). Deploy autonomous software development agents — code generation, testing, code review, refactoring, debugging — in sandboxed V8 isolates that start in milliseconds.
+An AI agent orchestration platform for autonomous software development — code generation, testing, code review, refactoring, and debugging — that decomposes a task into a dependency graph of agents and runs them **concurrently** with self-healing, human review, and full cost tracking.
 
-Each agent runs in its own Dynamic Worker with controlled network access, capability-based bindings, and full observability. No containers. No cold-start penalty. 100+ concurrent agents.
+The orchestration **core is platform-agnostic**. A ports-and-adapters design keeps the scheduling logic runtime-neutral, so the same engine runs in two places:
 
-![logo header](.github\assets\puppeteer_agent_light_wide.svg)
+- **Cloudflare edge runtime** — each agent executes in its own [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/) (sandboxed V8 isolate, egress firewall, millisecond starts, 100+ concurrent agents).
+- **Local Node runtime** — the same orchestrator runs on your machine with **no Cloudflare account**, using in-process agent runners, an in-memory state store, and an egress-guarded `fetch`.
+
+The **LLM backend is pluggable** too: Anthropic, OpenAI, DeepSeek, Ollama, or any OpenAI-compatible / self-hosted endpoint — selected by configuration, not code.
+
+![logo header](.github/assets/puppeteer_agent_light_wide.svg)
 
 ---
 
@@ -12,12 +17,12 @@ Each agent runs in its own Dynamic Worker with controlled network access, capabi
 
 1. **You submit a task** — a description, target repo, and agent type.
 2. **The orchestrator decomposes it** — a `codegen` task spawns CodeGen → Test → Review subtasks with dependency ordering.
-3. **Agents run in sandboxed Dynamic Workers** — each with scoped file system, Git, LLM, and search bindings. Agents never see credentials.
-4. **Results aggregate** — when all subtasks pass, the task enters a human review gate.
+3. **Agents run concurrently** — bounded by a semaphore (rate-limit safe). On Cloudflare they run in sandboxed Dynamic Workers with scoped file system, Git, LLM, and search bindings; locally they run as in-process runners. Agents never see credentials.
+4. **Results aggregate** — when all subtasks pass, the task enters a human review gate. Failures self-heal with retries + error context.
 5. **You approve** — the orchestrator creates a GitHub PR with the agent's changes.
 
 ```
-POST /tasks → Orchestrator → Dynamic Workers (agents) → Human Review → GitHub PR
+POST /tasks → Orchestrator core → [ Cloudflare Dynamic Workers | Local Node runners ] → Human Review → GitHub PR
 ```
 
 ---
@@ -26,13 +31,16 @@ POST /tasks → Orchestrator → Dynamic Workers (agents) → Human Review → G
 
 | Feature | Description |
 |---|---|
+| **Platform-Agnostic Core** | Ports-and-adapters design; the same engine runs on Cloudflare or a local Node runtime |
+| **Pluggable LLM Providers** | Anthropic, OpenAI, DeepSeek, Ollama, or any OpenAI-compatible/self-hosted endpoint — chosen by config |
+| **Concurrent Multi-Agent** | Dependency-aware wave scheduling bounded by a counting semaphore (rate-limit safe) |
 | **6 Agent Types** | CodeGen, Test, Review, Refactor, Debug, Dependency |
-| **Sandboxed Execution** | Each agent in an isolated V8 isolate with egress firewall |
+| **Sandboxed Execution** | On Cloudflare, each agent runs in an isolated V8 isolate with an egress firewall |
 | **Capability-Based Security** | Agents only access resources they're explicitly given (Cap'n Web RPC) |
-| **Credential Injection** | GitHub PATs and API keys injected at the gateway, invisible to agents |
+| **Credential Injection** | GitHub PATs and API keys injected at the gateway/egress layer, invisible to agents |
 | **Self-Healing** | Failed agents automatically retry with error context (exponential backoff) |
 | **Human-in-the-Loop** | Review gate — approve, reject, or request revisions before PR creation |
-| **Real-Time Streaming** | WebSocket endpoint for live agent logs |
+| **Real-Time Streaming** | WebSocket (edge) / SSE (local) endpoints for live agent logs |
 | **Cost Tracking** | Per-task token usage, CPU time, and dollar estimates |
 | **Agent Memory** | KV-backed persistent memory for coding conventions and patterns |
 | **Multi-Repo** | Per-repo credential scoping and branch isolation |
@@ -41,14 +49,45 @@ POST /tasks → Orchestrator → Dynamic Workers (agents) → Human Review → G
 
 ## Quick Start
 
+There are two ways to run the orchestrator. Pick whichever fits — the HTTP API
+and orchestration behavior are the same.
+
+| Runtime | Command | Needs Cloudflare? | Agent execution |
+|---|---|---|---|
+| **Local Node** | `npm run dev:local` | No | In-process runners + in-memory state |
+| **Cloudflare edge** | `npm run dev` (wrangler) | Yes | Sandboxed Dynamic Workers + Durable Objects |
+
 ### Prerequisites
 
 - Node.js >= 18
-- Cloudflare account (Paid plan for Durable Objects + KV)
-- API key for Anthropic and/or OpenAI
-- GitHub Personal Access Token
+- An LLM API key — Anthropic, OpenAI, DeepSeek, or a local Ollama / self-hosted endpoint
+- GitHub Personal Access Token (for repo file/Git operations)
+- **Cloudflare account** — only for the edge runtime (Paid plan for Durable Objects + KV)
 
-### Local Development
+### Local Node runtime (no Cloudflare account)
+
+Runs the full orchestrator on your machine using in-process agent runners, an
+in-memory state store, and an egress-guarded `fetch`.
+
+```bash
+# Install dependencies
+npm install
+
+# Configure via environment (see LLM Providers below)
+export LLM_PROVIDER=anthropic
+export LLM_API_KEY=sk-ant-...
+export LLM_MODEL=claude-sonnet-4-20250514
+export GITHUB_PAT=ghp_...
+
+# Start the local server (hot reload)
+npm run dev:local
+# → http://127.0.0.1:8787
+
+# Verify
+curl http://127.0.0.1:8787/health
+```
+
+### Cloudflare edge runtime
 
 ```bash
 # Install dependencies
@@ -61,13 +100,31 @@ OPENAI_API_KEY=sk-...
 GITHUB_PAT=ghp_...
 EOF
 
-# Start local dev server
+# Start the wrangler dev server
 npm run dev
 # → http://localhost:8787
 
 # Verify
 curl http://localhost:8787/health
 ```
+
+### LLM Providers
+
+The active model backend is selected by configuration and implemented behind a
+single `LlmProvider` port (`src/providers/llm/`). No application code changes are
+needed to switch providers.
+
+| Provider | `LLM_PROVIDER` | Notes |
+|---|---|---|
+| Anthropic | `anthropic` | Claude models |
+| OpenAI | `openai` | GPT models (OpenAI-compatible) |
+| DeepSeek | `deepseek` | OpenAI-compatible endpoint |
+| Ollama | `ollama` | Local models; requires `LLM_BASE_URL` (e.g. `http://localhost:11434/v1`) |
+| Self-hosted | `openai-compatible` | Any OpenAI-compatible server; requires `LLM_BASE_URL`. `vllm`, `lmstudio`, `together`, `groq` are also recognized ids |
+
+On the Cloudflare runtime the LLM binding (`src/bindings/llm.ts`) delegates to
+the same provider layer, so per-task `provider` / `model` selection works there
+too. See [docs/architecture.md](docs/architecture.md#pluggable-llm-providers).
 
 ### Local Development with Docker
 
@@ -133,11 +190,19 @@ curl -X POST https://your-worker.workers.dev/tasks \
 curl https://your-worker.workers.dev/tasks/<task-id>
 ```
 
-### Stream Logs (WebSocket)
+### Stream Logs
+
+On the Cloudflare edge runtime, `/tasks/:id/stream` is a WebSocket:
 
 ```javascript
 const ws = new WebSocket("wss://your-worker.workers.dev/tasks/<task-id>/stream");
 ws.onmessage = (e) => console.log(JSON.parse(e.data));
+```
+
+On the local Node runtime the same path is Server-Sent Events:
+
+```bash
+curl -N http://127.0.0.1:8787/tasks/<task-id>/stream
 ```
 
 ### Approve for PR
@@ -239,7 +304,7 @@ See [docs/deployment.md](docs/deployment.md) for the full CI/CD guide including 
 | `POST` | `/tasks` | Create tasks |
 | `GET` | `/tasks/:id` | Get task status |
 | `POST` | `/tasks/:id/review` | Submit review decision |
-| `WS` | `/tasks/:id/stream` | Real-time log stream |
+| `WS` / `SSE` | `/tasks/:id/stream` | Real-time log stream (WebSocket on edge, SSE on local) |
 | `GET` | `/usage` | Cost tracking |
 
 Full API documentation: [docs/api-reference.md](docs/api-reference.md)
@@ -252,14 +317,17 @@ Full API documentation: [docs/api-reference.md](docs/api-reference.md)
 .
 ├── wrangler.jsonc                 # Cloudflare Worker configuration
 ├── package.json                   # Dependencies and scripts
-├── tsconfig.json                  # TypeScript (strict mode)
+├── tsconfig.json                  # TypeScript for the Worker source (strict)
+├── tsconfig.node.json             # TypeScript for the local Node runtime (src/local)
+├── tsconfig.test.json             # TypeScript for tests (Jest types)
 ├── Dockerfile                     # Multi-stage: dev / typecheck / prod deploy
-├── docker-compose.yml             # Base Compose service definition
-├── docker-compose.dev.yml         # Dev override (wrangler dev + hot reload)
-├── docker-compose.prod.yml        # Prod override (wrangler deploy)
+├── docker-compose*.yml            # Base + dev + prod Compose overrides
 ├── .env.example                   # Template for .dev.vars and .env
 ├── docs/
-│   ├── architecture.md            # System design and data flow
+│   ├── architecture.md            # System design, ports & adapters, data flow
+│   ├── platform-agnostic-feasibility.md  # Feasibility deep-dive (Task 1)
+│   ├── technical-summary.md       # Summary of the platform-agnostic conversion
+│   ├── adr/                       # Architectural Decision Records (0001–0004)
 │   ├── research-brief.md          # Dynamic Workers platform research
 │   ├── api-reference.md           # Full HTTP API documentation
 │   ├── agents.md                  # Agent types and tool API
@@ -268,23 +336,51 @@ Full API documentation: [docs/api-reference.md](docs/api-reference.md)
 │   ├── docker.md                  # Docker Compose usage and deploy workflow
 │   └── configuration.md           # Wrangler config and tuning guide
 ├── src/
-│   ├── index.ts                   # Orchestrator Worker (main entry)
+│   ├── index.ts                   # Cloudflare orchestrator Worker (edge entry)
 │   ├── types.ts                   # Shared type definitions
 │   ├── env.d.ts                   # Generated environment types
-│   ├── state.ts                   # TaskManager + CostTracker DOs
-│   ├── observability.ts           # DynamicWorkerTail + LogSession DO
-│   ├── gateway.ts                 # HttpGateway egress control
+│   ├── state.ts                   # TaskManager + CostTracker DOs (Cloudflare)
+│   ├── observability.ts           # DynamicWorkerTail + LogSession DO (Cloudflare)
+│   ├── gateway.ts                 # HttpGateway egress control (Cloudflare)
+│   ├── core/                      # ── Runtime-neutral orchestration core ──
+│   │   ├── ports.ts               # StateStore + AgentRuntime interfaces (the "ports")
+│   │   ├── orchestrator.ts        # Scheduling, concurrency, self-heal, review flow
+│   │   ├── state-machine.ts       # Pure transition table + cost aggregation
+│   │   ├── decompose.ts           # Task → subtask dependency graph (pure)
+│   │   ├── semaphore.ts           # Counting semaphore bounding concurrent agents
+│   │   ├── memory-state-store.ts  # In-memory StateStore (local/testing)
+│   │   └── id.ts                  # Runtime-neutral id generation
+│   ├── providers/llm/             # ── Pluggable LLM provider layer ──
+│   │   ├── types.ts               # LlmProvider port
+│   │   ├── registry.ts            # provider id → adapter factory
+│   │   ├── anthropic.ts           # Anthropic adapter
+│   │   ├── openai-compatible.ts   # OpenAI / DeepSeek / Ollama / self-hosted
+│   │   ├── pricing.ts             # Per-model cost estimation
+│   │   └── retry.ts               # Backoff + jitter
+│   ├── runtime/                   # ── Runtime adapters ──
+│   │   ├── egress.ts              # EgressPolicy: allowlist + credential injection
+│   │   └── local.ts               # LocalRuntime (AgentRuntime for Node)
+│   ├── local/                     # ── Local Node HTTP server ──
+│   │   ├── main.ts                # Executable entry (npm run dev:local)
+│   │   ├── server.ts              # REST API + SSE log streaming
+│   │   ├── config.ts              # Env-driven configuration
+│   │   └── log-hub.ts             # In-process log fan-out
 │   ├── agents/
-│   │   ├── source.ts              # Agent source code registry
+│   │   ├── source.ts              # Agent source code registry (Cloudflare)
+│   │   ├── runners.ts             # In-process codegen/test/review runners (local)
 │   │   ├── codegen.ts             # CodeGen Agent (reference)
 │   │   ├── test.ts                # Test Agent (reference)
 │   │   └── review.ts              # Review Agent (reference)
-│   └── bindings/
+│   └── bindings/                  # Cloudflare RPC bindings
 │       ├── filesystem.ts          # FileSystem RPC binding
 │       ├── git.ts                 # Git RPC binding
-│       ├── llm.ts                 # LLM RPC binding
+│       ├── llm.ts                 # LLM RPC binding (delegates to providers/llm)
 │       ├── search.ts              # CodeSearch RPC binding
 │       └── memory.ts              # Memory RPC binding
+└── examples/
+    ├── crypto-payments/           # Platform-agnostic payment service (Stripe/PayPal/Coinbase/Mock)
+    ├── fastapi-crypto-terminal/   # FastAPI orchestrator client example
+    └── task-ui/                   # Task submission UI
 ```
 
 ---
@@ -293,7 +389,10 @@ Full API documentation: [docs/api-reference.md](docs/api-reference.md)
 
 | Document | Description |
 |---|---|
-| [Architecture](docs/architecture.md) | System design, component map, data flow, state machine |
+| [Architecture](docs/architecture.md) | System design, ports & adapters, component map, data flow, state machine |
+| [Technical Summary](docs/technical-summary.md) | Overview of the platform-agnostic conversion + crypto-payments example |
+| [Platform-Agnostic Feasibility](docs/platform-agnostic-feasibility.md) | Deep-dive: coupling points, target architecture, migration strategy |
+| [ADRs](docs/adr/) | Architectural Decision Records — runtime, LLM, payment, and state/observability abstractions |
 | [Research Brief](docs/research-brief.md) | Cloudflare Dynamic Workers deep research findings |
 | [API Reference](docs/api-reference.md) | Full HTTP/WebSocket API documentation |
 | [Agents](docs/agents.md) | Agent types, tool API interfaces, how to add new agents |
@@ -304,13 +403,31 @@ Full API documentation: [docs/api-reference.md](docs/api-reference.md)
 
 ---
 
+## Examples
+
+| Example | Description |
+|---|---|
+| [crypto-payments](examples/crypto-payments/) | A platform-agnostic, modular payment service that switches between **Stripe, PayPal, Coinbase Commerce, or Mock** via one env var — the same ports-and-adapters pattern applied to payments. Webhook signatures are verified before events are trusted; money is handled in integer minor units. |
+| [fastapi-crypto-terminal](examples/fastapi-crypto-terminal/) | A FastAPI client that submits tasks to the orchestrator. |
+| [task-ui](examples/task-ui/) | A minimal UI for creating tasks and watching live logs. |
+
+---
+
 ## Scripts
 
 | Script | Command | Description |
 |---|---|---|
-| `dev` | `npm run dev` | Start local development server |
+| `dev:local` | `npm run dev:local` | Start the local Node runtime (hot reload, no Cloudflare) |
+| `start:local` | `npm run start:local` | Start the local Node runtime (no watch) |
+| `dev` | `npm run dev` | Start the Cloudflare (wrangler) dev server |
 | `deploy` | `npm run deploy` | Deploy to Cloudflare |
-| `typecheck` | `npm run typecheck` | Run TypeScript type checker |
+| `typecheck` | `npm run typecheck` | Type-check the Worker source |
+| `typecheck:node` | `npm run typecheck:node` | Type-check the local Node runtime (`src/local`) |
+| `typecheck:test` | `npm run typecheck:test` | Type-check the test suite |
+| `test` | `npm test` | Run unit + integration tests |
+| `test:unit` | `npm run test:unit` | Run unit tests |
+| `test:integration` | `npm run test:integration` | Run integration tests |
+| `test:coverage` | `npm run test:coverage` | Run tests with coverage (80% gate) |
 | `types` | `npm run types` | Regenerate `env.d.ts` from wrangler config |
 | `tail` | `npm run tail` | Stream live production logs |
 
