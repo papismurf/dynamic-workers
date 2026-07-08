@@ -4,6 +4,7 @@
  * (or until MAX_AGENT_RETRIES is exhausted). Jest fake timers skip the
  * exponential-backoff sleeps.
  */
+import { jest } from "@jest/globals";
 import orchestrator from "../../src/index.js";
 import { createTestEnv, type TestEnvHandle } from "../helpers/env.js";
 import type { CreateTaskRequest } from "../../src/types.js";

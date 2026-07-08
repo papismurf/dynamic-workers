@@ -119,9 +119,14 @@ export class CodeSearch extends WorkerEntrypoint<Env, CodeSearchProps> {
 function globToRegex(glob: string): RegExp {
   const escaped = glob
     .replace(/[.+^${}()|[\]\\]/g, "\\$&")
+    // `**/` spans zero or more path segments, so `src/**/*.ts` also matches
+    // files directly under `src/` (e.g. `src/a.ts`), matching globstar
+    // semantics. A bare `**` (no trailing slash) matches across separators.
+    .replace(/\*\*\//g, "{{GLOBSTAR_SLASH}}")
     .replace(/\*\*/g, "{{GLOBSTAR}}")
     .replace(/\*/g, "[^/]*")
     .replace(/\?/g, "[^/]")
+    .replace(/\{\{GLOBSTAR_SLASH\}\}/g, "(?:[^/]+/)*")
     .replace(/\{\{GLOBSTAR\}\}/g, ".*");
   return new RegExp(`^${escaped}$`);
 }

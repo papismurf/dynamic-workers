@@ -6,8 +6,9 @@
  * pushes them into the corresponding LogSession via the `exports` registry.
  */
 
+import { jest } from "@jest/globals";
 import { LogSession, DynamicWorkerTail } from "./observability.js";
-import { installWebSocketPair, type FakeServerWebSocket } from "../tests/helpers/ws.js";
+import type { FakeServerWebSocket } from "../tests/helpers/ws.js";
 import { InMemoryStorage } from "../tests/helpers/storage.js";
 import {
   exports as workerExports,
@@ -15,13 +16,8 @@ import {
 } from "../tests/helpers/cloudflare-workers.js";
 import type { LogEntry } from "./types.js";
 
-let uninstallWs: () => void;
-beforeAll(() => {
-  uninstallWs = installWebSocketPair();
-});
-afterAll(() => {
-  uninstallWs();
-});
+// WebSocketPair + WS-upgrade Response are installed globally by the Jest setup
+// (tests/helpers/setup-worker-globals.ts).
 afterEach(() => {
   resetExports();
 });

@@ -3,6 +3,7 @@
  * tests/helpers provides just enough of the ctx.storage surface to exercise
  * real transition logic without spinning up miniflare.
  */
+import { jest } from "@jest/globals";
 import { TaskManager, CostTracker } from "./state.js";
 import { InMemoryStorage } from "../tests/helpers/storage.js";
 import type {

@@ -45,6 +45,9 @@ const shared: Partial<Config> = {
       },
     ],
   },
+  // Install Workers runtime globals (WebSocketPair, WS-upgrade Response) that
+  // Node/undici lack, so source targeting the Workers runtime runs unchanged.
+  setupFiles: ["<rootDir>/tests/helpers/setup-worker-globals.ts"],
   // Deterministic tests: no real timers, no wall-clock sleeps.
   fakeTimers: { enableGlobally: false },
   clearMocks: true,
