@@ -152,3 +152,21 @@
 | 22:25 | Session end: 89 writes across 46 files (types.ts, pricing.ts, anthropic.ts, openai-compatible.ts, retry.ts) | 65 reads | ~117701 tok |
 | 22:40 | Created .github/workflows/crypto-payments-ci.yml | — | ~327 |
 | 22:45 | Session end: 90 writes across 46 files (types.ts, pricing.ts, anthropic.ts, openai-compatible.ts, retry.ts) | 65 reads | ~118314 tok |
+| 08:07 | Created tests/helpers/setup-worker-globals.ts | — | ~502 |
+| 09:30 | Session end: 91 writes across 47 files (types.ts, pricing.ts, anthropic.ts, openai-compatible.ts, retry.ts) | 66 reads | ~118816 tok |
+| 09:33 | Created .github/workflows/ci.yml | — | ~346 |
+| 09:35 | Session end: 92 writes across 48 files (types.ts, pricing.ts, anthropic.ts, openai-compatible.ts, retry.ts) | 68 reads | ~119889 tok |
+| 09:44 | Created src/core/state-machine.test.ts | — | ~693 |
+| 09:44 | Created src/core/state-machine.test.ts | — | ~728 |
+| 09:44 | Created src/core/decompose.test.ts | — | ~447 |
+| 09:45 | Created src/core/id.test.ts | — | ~423 |
+| 09:45 | Created src/core/memory-state-store.test.ts | — | ~1232 |
+| 09:46 | Created src/agents/runners.test.ts | — | ~1725 |
+| 09:46 | Created src/agents/runners.test.ts | — | ~1736 |
+| 09:46 | Created src/local/log-hub.test.ts | — | ~425 |
+| 09:46 | Created src/local/server.node.test.ts | — | ~1178 |
+| 09:48 | Created src/bindings/git.test.ts | — | ~2676 |
+| 09:48 | Created src/runtime/local.test.ts | — | ~1559 |
+| 09:48 | Session end: 103 writes across 56 files (types.ts, pricing.ts, anthropic.ts, openai-compatible.ts, retry.ts) | 78 reads | ~136809 tok |
+| 11:13 | Session end: 103 writes across 56 files (types.ts, pricing.ts, anthropic.ts, openai-compatible.ts, retry.ts) | 78 reads | ~136809 tok |
+| 11:15 | Session end: 103 writes across 56 files (types.ts, pricing.ts, anthropic.ts, openai-compatible.ts, retry.ts) | 78 reads | ~136809 tok |

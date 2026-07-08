@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-04-23T20:26:46.638Z",
   "lifetime": {
-    "total_tokens_estimated": 640197,
-    "total_reads": 296,
-    "total_writes": 483,
+    "total_tokens_estimated": 1289329,
+    "total_reads": 664,
+    "total_writes": 975,
     "total_sessions": 3,
-    "anatomy_hits": 94,
-    "anatomy_misses": 196,
-    "repeated_reads_blocked": 278,
-    "estimated_savings_vs_bare_cli": 363196
+    "anatomy_hits": 184,
+    "anatomy_misses": 474,
+    "repeated_reads_blocked": 677,
+    "estimated_savings_vs_bare_cli": 861189
   },
   "sessions": [
     {
@@ -4438,6 +4438,4759 @@
         "writes_count": 90,
         "repeated_reads_blocked": 69,
         "anatomy_lookups": 16
+      }
+    },
+    {
+      "id": "session-2026-05-13-1835",
+      "started": "2026-05-13T17:35:55.849Z",
+      "ended": "2026-07-08T08:30:58.597Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 594,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/fetch.ts",
+          "tokens_estimated": 1032,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.test.ts",
+          "tokens_estimated": 1749,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/index.test.ts",
+          "tokens_estimated": 3028,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/types.ts",
+          "tokens_estimated": 1708,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/state.ts",
+          "tokens_estimated": 1558,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 1739,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 1898,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 1914,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.gitignore",
+          "tokens_estimated": 19,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/.cursor/skills/principal-software-engineer/SKILL.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 286,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 431,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 529,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 625,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 594,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 646,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 1558,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 382,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 669,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 672,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 667,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 419,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 863,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2102,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1132,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2199,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 1725,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 312,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 842,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 336,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1785,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 436,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 442,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 705,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 700,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 616,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1410,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 455,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 144,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 116,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 868,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 201,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 765,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 1656,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1272,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1689,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1687,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 457,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 364,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 550,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 982,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 1202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 145,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 1344,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 503,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1701,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1744,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1751,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1884,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1315,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1209,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 310,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1234,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1107,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1215,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1314,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 1752,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 502,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 37590,
+        "output_tokens_estimated": 81226,
+        "reads_count": 66,
+        "writes_count": 91,
+        "repeated_reads_blocked": 70,
+        "anatomy_lookups": 16
+      }
+    },
+    {
+      "id": "session-2026-05-13-1835",
+      "started": "2026-05-13T17:35:55.849Z",
+      "ended": "2026-07-08T08:35:38.331Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 594,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/fetch.ts",
+          "tokens_estimated": 1032,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.test.ts",
+          "tokens_estimated": 1749,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/index.test.ts",
+          "tokens_estimated": 3028,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/types.ts",
+          "tokens_estimated": 1708,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/state.ts",
+          "tokens_estimated": 1558,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 1739,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 1898,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 1914,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.gitignore",
+          "tokens_estimated": 19,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/.cursor/skills/principal-software-engineer/SKILL.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/playwright.config.ts",
+          "tokens_estimated": 686,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 431,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 529,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 625,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 594,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 646,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 1558,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 382,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 669,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 672,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 667,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 419,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 863,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2102,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1132,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2199,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 1725,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 312,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 842,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 336,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1785,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 436,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 442,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 705,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 700,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 616,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1410,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 455,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 144,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 116,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 868,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 201,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 765,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 1656,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1272,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1689,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1687,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 457,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 364,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 550,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 982,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 1202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 145,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 1344,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 503,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1701,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1744,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1751,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1884,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1315,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1209,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 310,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1234,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1107,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1215,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1314,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 1752,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 502,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+          "tokens_estimated": 346,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 38317,
+        "output_tokens_estimated": 81572,
+        "reads_count": 68,
+        "writes_count": 92,
+        "repeated_reads_blocked": 71,
+        "anatomy_lookups": 17
+      }
+    },
+    {
+      "id": "session-2026-05-13-1835",
+      "started": "2026-05-13T17:35:55.849Z",
+      "ended": "2026-07-08T08:48:57.318Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 623,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/fetch.ts",
+          "tokens_estimated": 1032,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.test.ts",
+          "tokens_estimated": 1749,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/index.test.ts",
+          "tokens_estimated": 3028,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 336,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/types.ts",
+          "tokens_estimated": 1708,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/state.ts",
+          "tokens_estimated": 1558,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 1739,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 1898,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 1914,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.gitignore",
+          "tokens_estimated": 19,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/.cursor/skills/principal-software-engineer/SKILL.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/playwright.config.ts",
+          "tokens_estimated": 686,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.node.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.ts",
+          "tokens_estimated": 1843,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.test.ts",
+          "tokens_estimated": 1890,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 431,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 529,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 625,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 594,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 646,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 1558,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 382,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 669,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 672,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 667,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 419,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 863,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2102,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1132,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2199,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 1725,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 312,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 842,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 336,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1785,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 436,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 442,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 705,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 700,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 616,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1410,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 455,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 144,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 116,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 868,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 201,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 765,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 1656,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1272,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1689,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1687,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 457,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 364,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 550,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 982,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 1202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 145,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 1344,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 503,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1701,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1744,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1751,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1884,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1315,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1209,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 310,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1234,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1107,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1215,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1314,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 1752,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 502,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+          "tokens_estimated": 346,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 693,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 728,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.test.ts",
+          "tokens_estimated": 447,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.test.ts",
+          "tokens_estimated": 423,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.test.ts",
+          "tokens_estimated": 1232,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 1725,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 1736,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.test.ts",
+          "tokens_estimated": 425,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.node.test.ts",
+          "tokens_estimated": 1178,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.test.ts",
+          "tokens_estimated": 2676,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1559,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 42415,
+        "output_tokens_estimated": 94394,
+        "reads_count": 78,
+        "writes_count": 103,
+        "repeated_reads_blocked": 86,
+        "anatomy_lookups": 19
+      }
+    },
+    {
+      "id": "session-2026-05-13-1835",
+      "started": "2026-05-13T17:35:55.849Z",
+      "ended": "2026-07-08T10:13:32.681Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 623,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/fetch.ts",
+          "tokens_estimated": 1032,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.test.ts",
+          "tokens_estimated": 1749,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/index.test.ts",
+          "tokens_estimated": 3028,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 336,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/types.ts",
+          "tokens_estimated": 1708,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/state.ts",
+          "tokens_estimated": 1558,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 1739,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 1898,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 1914,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.gitignore",
+          "tokens_estimated": 19,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/.cursor/skills/principal-software-engineer/SKILL.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/playwright.config.ts",
+          "tokens_estimated": 686,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.node.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.ts",
+          "tokens_estimated": 1843,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.test.ts",
+          "tokens_estimated": 1890,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 431,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 529,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 625,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 594,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 646,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 1558,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 382,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 669,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 672,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 667,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 419,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 863,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2102,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1132,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2199,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 1725,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 312,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 842,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 336,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1785,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 436,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 442,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 705,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 700,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 616,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1410,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 455,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 144,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 116,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 868,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 201,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 765,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 1656,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1272,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1689,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1687,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 457,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 364,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 550,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 982,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 1202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 145,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 1344,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 503,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1701,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1744,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1751,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1884,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1315,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1209,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 310,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1234,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1107,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1215,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1314,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 1752,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 502,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+          "tokens_estimated": 346,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 693,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 728,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.test.ts",
+          "tokens_estimated": 447,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.test.ts",
+          "tokens_estimated": 423,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.test.ts",
+          "tokens_estimated": 1232,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 1725,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 1736,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.test.ts",
+          "tokens_estimated": 425,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.node.test.ts",
+          "tokens_estimated": 1178,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.test.ts",
+          "tokens_estimated": 2676,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1559,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 42415,
+        "output_tokens_estimated": 94394,
+        "reads_count": 78,
+        "writes_count": 103,
+        "repeated_reads_blocked": 86,
+        "anatomy_lookups": 19
+      }
+    },
+    {
+      "id": "session-2026-05-13-1835",
+      "started": "2026-05-13T17:35:55.849Z",
+      "ended": "2026-07-08T10:15:24.875Z",
+      "reads": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 623,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/fetch.ts",
+          "tokens_estimated": 1032,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.test.ts",
+          "tokens_estimated": 1749,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/index.test.ts",
+          "tokens_estimated": 3028,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 336,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/types.ts",
+          "tokens_estimated": 1708,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/state.ts",
+          "tokens_estimated": 1558,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/codegen.ts",
+          "tokens_estimated": 1739,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/test.ts",
+          "tokens_estimated": 1898,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/review.ts",
+          "tokens_estimated": 1914,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/.env.example",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.gitignore",
+          "tokens_estimated": 19,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/.cursor/skills/principal-software-engineer/SKILL.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/playwright.config.ts",
+          "tokens_estimated": 686,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.node.test.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.ts",
+          "tokens_estimated": 1843,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.test.ts",
+          "tokens_estimated": 1890,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 431,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 529,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 625,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.ts",
+          "tokens_estimated": 479,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 594,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts",
+          "tokens_estimated": 146,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 646,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.test.ts",
+          "tokens_estimated": 1558,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.test.ts",
+          "tokens_estimated": 239,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/retry.test.ts",
+          "tokens_estimated": 382,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/llm.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 669,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 672,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 667,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/pricing.ts",
+          "tokens_estimated": 603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts",
+          "tokens_estimated": 478,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 419,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.ts",
+          "tokens_estimated": 309,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 863,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts",
+          "tokens_estimated": 458,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2102,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.ts",
+          "tokens_estimated": 655,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts",
+          "tokens_estimated": 2302,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1132,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2199,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 1725,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/semaphore.test.ts",
+          "tokens_estimated": 312,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/egress.test.ts",
+          "tokens_estimated": 524,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 842,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.ts",
+          "tokens_estimated": 398,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts",
+          "tokens_estimated": 336,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1785,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/config.test.ts",
+          "tokens_estimated": 411,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts",
+          "tokens_estimated": 1114,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts",
+          "tokens_estimated": 1720,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/main.ts",
+          "tokens_estimated": 71,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 436,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 442,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/jest.config.ts",
+          "tokens_estimated": 929,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/package.json",
+          "tokens_estimated": 450,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts",
+          "tokens_estimated": 484,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 705,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/anthropic.ts",
+          "tokens_estimated": 707,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 700,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts",
+          "tokens_estimated": 702,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 616,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts",
+          "tokens_estimated": 623,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1410,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts",
+          "tokens_estimated": 1540,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/ports.ts",
+          "tokens_estimated": 455,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts",
+          "tokens_estimated": 905,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.ts",
+          "tokens_estimated": 2603,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/orchestrator.test.ts",
+          "tokens_estimated": 2873,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1157,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 144,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/tsconfig.json",
+          "tokens_estimated": 116,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/types.ts",
+          "tokens_estimated": 868,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/crypto.ts",
+          "tokens_estimated": 201,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/mock.ts",
+          "tokens_estimated": 765,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/stripe.ts",
+          "tokens_estimated": 1656,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1272,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1689,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1687,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.ts",
+          "tokens_estimated": 457,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/config.ts",
+          "tokens_estimated": 364,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.ts",
+          "tokens_estimated": 550,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 982,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/main.ts",
+          "tokens_estimated": 202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/registry.test.ts",
+          "tokens_estimated": 1202,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/payment-service.test.ts",
+          "tokens_estimated": 488,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/package.json",
+          "tokens_estimated": 145,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/README.md",
+          "tokens_estimated": 1344,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.ts",
+          "tokens_estimated": 503,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1701,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1744,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1751,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.ts",
+          "tokens_estimated": 1884,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/coinbase.ts",
+          "tokens_estimated": 1315,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1209,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/money.test.ts",
+          "tokens_estimated": 310,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1234,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/providers/paypal.test.ts",
+          "tokens_estimated": 1107,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1215,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/examples/crypto-payments/src/server.ts",
+          "tokens_estimated": 1314,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 286,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md",
+          "tokens_estimated": 1752,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml",
+          "tokens_estimated": 327,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+          "tokens_estimated": 502,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+          "tokens_estimated": 346,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 693,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+          "tokens_estimated": 728,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.test.ts",
+          "tokens_estimated": 447,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.test.ts",
+          "tokens_estimated": 423,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.test.ts",
+          "tokens_estimated": 1232,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 1725,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+          "tokens_estimated": 1736,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.test.ts",
+          "tokens_estimated": 425,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.node.test.ts",
+          "tokens_estimated": 1178,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.test.ts",
+          "tokens_estimated": 2676,
+          "action": "create"
+        },
+        {
+          "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+          "tokens_estimated": 1559,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 42415,
+        "output_tokens_estimated": 94394,
+        "reads_count": 78,
+        "writes_count": 103,
+        "repeated_reads_blocked": 86,
+        "anatomy_lookups": 19
       }
     }
   ],

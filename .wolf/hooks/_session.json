@@ -3,7 +3,7 @@
   "started": "2026-05-13T17:35:55.849Z",
   "files_read": {
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/types.ts": {
-      "count": 5,
+      "count": 6,
       "tokens": 484,
       "first_read": "2026-07-07T20:06:35.588Z"
     },
@@ -18,7 +18,7 @@
       "first_read": "2026-07-07T20:06:58.803Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/openai-compatible.ts": {
-      "count": 5,
+      "count": 6,
       "tokens": 702,
       "first_read": "2026-07-07T20:07:07.392Z"
     },
@@ -28,8 +28,8 @@
       "first_read": "2026-07-07T20:07:15.931Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/registry.ts": {
-      "count": 3,
-      "tokens": 594,
+      "count": 4,
+      "tokens": 623,
       "first_read": "2026-07-07T20:07:31.283Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/providers/llm/index.ts": {
@@ -78,7 +78,7 @@
       "first_read": "2026-07-07T20:14:01.446Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.ts": {
-      "count": 3,
+      "count": 4,
       "tokens": 478,
       "first_read": "2026-07-07T20:14:45.665Z"
     },
@@ -93,12 +93,12 @@
       "first_read": "2026-07-07T20:14:58.882Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.ts": {
-      "count": 2,
+      "count": 3,
       "tokens": 905,
       "first_read": "2026-07-07T20:15:14.825Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.ts": {
-      "count": 2,
+      "count": 3,
       "tokens": 458,
       "first_read": "2026-07-07T20:15:21.653Z"
     },
@@ -113,12 +113,12 @@
       "first_read": "2026-07-07T20:16:34.852Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.ts": {
-      "count": 6,
+      "count": 7,
       "tokens": 2302,
       "first_read": "2026-07-07T20:18:03.520Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.ts": {
-      "count": 10,
+      "count": 11,
       "tokens": 1540,
       "first_read": "2026-07-07T20:18:39.780Z"
     },
@@ -138,7 +138,7 @@
       "first_read": "2026-07-07T20:21:29.240Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts": {
-      "count": 4,
+      "count": 6,
       "tokens": 1157,
       "first_read": "2026-07-07T20:21:43.618Z"
     },
@@ -148,12 +148,12 @@
       "first_read": "2026-07-07T20:22:11.111Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.ts": {
-      "count": 1,
-      "tokens": 0,
+      "count": 2,
+      "tokens": 336,
       "first_read": "2026-07-07T20:22:16.707Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.ts": {
-      "count": 3,
+      "count": 4,
       "tokens": 1720,
       "first_read": "2026-07-07T20:23:03.538Z"
     },
@@ -163,7 +163,7 @@
       "first_read": "2026-07-07T20:23:24.402Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.test.ts": {
-      "count": 2,
+      "count": 3,
       "tokens": 1114,
       "first_read": "2026-07-07T20:23:42.696Z"
     },
@@ -178,7 +178,7 @@
       "first_read": "2026-07-07T20:24:46.818Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/types.ts": {
-      "count": 3,
+      "count": 4,
       "tokens": 1708,
       "first_read": "2026-07-07T20:30:05.851Z"
     },
@@ -318,14 +318,79 @@
       "first_read": "2026-07-07T21:14:36.497Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/crypto-payments-ci.yml": {
-      "count": 2,
-      "tokens": 286,
+      "count": 3,
+      "tokens": 327,
       "first_read": "2026-07-07T21:18:27.710Z"
     },
     "/Users/davidbrown/Documents/GitHub/dynamic-workers/docs/technical-summary.md": {
       "count": 1,
       "tokens": 0,
       "first_read": "2026-07-07T21:19:12.085Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts": {
+      "count": 2,
+      "tokens": 0,
+      "first_read": "2026-07-08T07:07:41.014Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/playwright.config.ts": {
+      "count": 1,
+      "tokens": 686,
+      "first_read": "2026-07-08T08:32:24.502Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:33:49.882Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:42:18.154Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:44:31.089Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.test.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:44:59.434Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.test.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:45:18.277Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.test.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:45:38.011Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:46:06.892Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.test.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:46:23.454Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.node.test.ts": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-08T08:46:54.953Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.ts": {
+      "count": 1,
+      "tokens": 1843,
+      "first_read": "2026-07-08T08:47:59.515Z"
+    },
+    "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.test.ts": {
+      "count": 2,
+      "tokens": 1890,
+      "first_read": "2026-07-08T08:48:05.768Z"
     }
   },
   "files_written": [
@@ -868,6 +933,84 @@
       "action": "create",
       "tokens": 327,
       "at": "2026-07-07T21:40:05.354Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/tests/helpers/setup-worker-globals.ts",
+      "action": "create",
+      "tokens": 502,
+      "at": "2026-07-08T07:07:52.057Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/.github/workflows/ci.yml",
+      "action": "create",
+      "tokens": 346,
+      "at": "2026-07-08T08:33:50.316Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+      "action": "create",
+      "tokens": 693,
+      "at": "2026-07-08T08:44:31.347Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/state-machine.test.ts",
+      "action": "create",
+      "tokens": 728,
+      "at": "2026-07-08T08:44:49.920Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/decompose.test.ts",
+      "action": "create",
+      "tokens": 447,
+      "at": "2026-07-08T08:44:59.679Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/id.test.ts",
+      "action": "create",
+      "tokens": 423,
+      "at": "2026-07-08T08:45:18.521Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/core/memory-state-store.test.ts",
+      "action": "create",
+      "tokens": 1232,
+      "at": "2026-07-08T08:45:38.283Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+      "action": "create",
+      "tokens": 1725,
+      "at": "2026-07-08T08:46:07.190Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/agents/runners.test.ts",
+      "action": "create",
+      "tokens": 1736,
+      "at": "2026-07-08T08:46:13.561Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/log-hub.test.ts",
+      "action": "create",
+      "tokens": 425,
+      "at": "2026-07-08T08:46:23.704Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/local/server.node.test.ts",
+      "action": "create",
+      "tokens": 1178,
+      "at": "2026-07-08T08:46:56.037Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/bindings/git.test.ts",
+      "action": "create",
+      "tokens": 2676,
+      "at": "2026-07-08T08:48:27.199Z"
+    },
+    {
+      "file": "/Users/davidbrown/Documents/GitHub/dynamic-workers/src/runtime/local.test.ts",
+      "action": "create",
+      "tokens": 1559,
+      "at": "2026-07-08T08:48:37.604Z"
     }
   ],
   "edit_counts": {
@@ -894,7 +1037,7 @@
     "src/core/orchestrator.test.ts": 2,
     "src/core/semaphore.test.ts": 1,
     "src/runtime/egress.test.ts": 1,
-    "src/runtime/local.test.ts": 2,
+    "src/runtime/local.test.ts": 3,
     "src/local/config.ts": 1,
     "src/local/log-hub.ts": 1,
     "src/local/server.ts": 2,
@@ -923,11 +1066,21 @@
     "examples/crypto-payments/src/money.test.ts": 1,
     "examples/crypto-payments/src/providers/paypal.test.ts": 2,
     ".github/workflows/crypto-payments-ci.yml": 2,
-    "docs/technical-summary.md": 1
+    "docs/technical-summary.md": 1,
+    "tests/helpers/setup-worker-globals.ts": 1,
+    ".github/workflows/ci.yml": 1,
+    "src/core/state-machine.test.ts": 2,
+    "src/core/decompose.test.ts": 1,
+    "src/core/id.test.ts": 1,
+    "src/core/memory-state-store.test.ts": 1,
+    "src/agents/runners.test.ts": 2,
+    "src/local/log-hub.test.ts": 1,
+    "src/local/server.node.test.ts": 1,
+    "src/bindings/git.test.ts": 1
   },
-  "anatomy_hits": 16,
-  "anatomy_misses": 49,
-  "repeated_reads_warned": 69,
+  "anatomy_hits": 19,
+  "anatomy_misses": 59,
+  "repeated_reads_warned": 86,
   "cerebrum_warnings": 0,
-  "stop_count": 4
+  "stop_count": 9
 }

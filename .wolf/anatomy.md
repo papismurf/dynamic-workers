@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-07T21:40:05.345Z
-> Files: 195 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-08T08:48:37.594Z
+> Files: 204 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../../../../../home/brown/.claude/plans/
 
@@ -38,6 +38,7 @@
 
 ## .github/workflows/
 
+- `ci.yml` — CI: CI (~346 tok)
 - `claude-code-review.yml` — /*.ts" (~422 tok)
 - `claude.yml` — CI: Claude Code (~554 tok)
 - `crypto-payments-ci.yml` — CI: crypto-payments example CI (~327 tok)
@@ -218,6 +219,7 @@
 
 - `codegen.ts` — CodeGen Agent — generates new code from a natural language spec and file context. (~1739 tok)
 - `review.ts` — Review Agent — performs code review, identifies bugs, suggests improvements. (~1914 tok)
+- `runners.test.ts` — Unit tests for the in-process agent runners (the no-Cloudflare execution (~1736 tok)
 - `runners.ts` — In-process agent implementations (codegen / test / review). (~2302 tok)
 - `source.test.ts` — Agent source registry: each AgentType maps to the right embedded source (~404 tok)
 - `source.ts` — Agent source code registry — returns the TypeScript source for each agent type. (~3610 tok)
@@ -227,7 +229,7 @@
 
 - `filesystem.test.ts` — FileSystem binding tests. Every method hits the GitHub Contents API via (~1664 tok)
 - `filesystem.ts` — FileSystem RPC binding — exposes read/write/list/delete scoped to a GitHub repo. (~1100 tok)
-- `git.test.ts` — Git binding tests. The commit path chains four GitHub API calls (~1890 tok)
+- `git.test.ts` — Git binding tests. The commit path chains four GitHub API calls (~2676 tok)
 - `git.ts` — Git RPC binding — exposes branch, commit, diff, push operations (~1843 tok)
 - `llm.test.ts` — LLM binding tests — provider routing, credential placement, retry/backoff (~1749 tok)
 - `llm.ts` — Optional base URL override for OpenAI-compatible / self-hosted models. (~411 tok)
@@ -238,21 +240,27 @@
 
 ## src/core/
 
+- `decompose.test.ts` — Unit tests for task decomposition — the pure task -> subtask fan-out. (~447 tok)
 - `decompose.ts` — Break a task request into a dependency graph of subtasks. Pure and (~458 tok)
+- `id.test.ts` — Unit tests for the runtime-neutral id helpers, covering both the Web Crypto (~423 tok)
+- `memory-state-store.test.ts` — Unit tests for InMemoryStateStore — the non-durable StateStore used by the (~1232 tok)
 - `memory-state-store.ts` — Non-durable, in-process StateStore for local dev, tests, and single-node (~905 tok)
 - `orchestrator.test.ts` — Orchestrator core tests — dependency-wave scheduling, self-heal, review (~2873 tok)
 - `orchestrator.ts` — Max agents allowed to run concurrently across all in-flight tasks. (~2603 tok)
 - `ports.ts` — Ports (interfaces) for the runtime-neutral orchestration core. Adapters live (~455 tok)
 - `semaphore.test.ts` — Declares sem (~312 tok)
 - `semaphore.ts` — Minimal counting semaphore used to bound how many agents run concurrently. (~309 tok)
+- `state-machine.test.ts` — Unit tests for the runtime-neutral state-machine helpers: transition (~728 tok)
 - `state-machine.ts` — Runtime-neutral task state-machine helpers. (~478 tok)
 
 ## src/local/
 
 - `config.test.ts` — Declares cfg (~411 tok)
 - `config.ts` — Environment-driven configuration for the local (no-Cloudflare) runtime. (~398 tok)
+- `log-hub.test.ts` — Unit tests for LogHub — the in-process log buffer + fan-out backing SSE. (~425 tok)
 - `log-hub.ts` — In-process log sink + fan-out. The local counterpart of the Cloudflare (~336 tok)
 - `main.ts` — Executable entry point for the local (no-Cloudflare) runtime. (~71 tok)
+- `server.node.test.ts` — End-to-end tests for the local Node HTTP server (createNodeServer): CORS (~1178 tok)
 - `server.test.ts` — REST routing tests for the local server. Drives handleRest() directly with a (~1114 tok)
 - `server.ts` — Local HTTP server — the no-Cloudflare entry point. Exposes the same REST (~1720 tok)
 
@@ -273,7 +281,7 @@
 
 - `egress.test.ts` — API routes: GET (4 endpoints) (~524 tok)
 - `egress.ts` — Runtime-neutral egress policy: a domain allowlist plus credential injection. (~655 tok)
-- `local.test.ts` — LocalRuntime tests — verify an agent runs in-process against a stubbed LLM (~1157 tok)
+- `local.test.ts` — LocalRuntime tests — verify an agent runs in-process against a stubbed LLM (~1559 tok)
 - `local.ts` — LocalRuntime — runs agents in-process against injected capability bindings. (~1540 tok)
 
 ## tests/e2e/
@@ -294,6 +302,7 @@
 - `fetch.ts` — Route-based fetch stub. Tests register matchers against (~1032 tok)
 - `kv.ts` — In-memory KVNamespace fake. Implements the subset of the KV API used by (~756 tok)
 - `loader.ts` — Fake implementation of the Worker Loader binding. src/index.ts calls (~413 tok)
+- `setup-worker-globals.ts` — Jest setup: install Cloudflare Workers runtime globals that Node/undici does (~502 tok)
 - `storage.ts` — Minimal in-memory DurableObjectStorage shaped after the subset used by (~242 tok)
 - `worker-bundler.ts` — Shim for @cloudflare/worker-bundler — redirected by jest's moduleNameMapper. (~139 tok)
 - `ws.ts` — WebSocketPair shim for Node-side tests of observability.ts. The real (~728 tok)
