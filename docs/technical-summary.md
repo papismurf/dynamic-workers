@@ -103,16 +103,19 @@ changing its public contract.
 - **CI:** `.github/workflows/crypto-payments-ci.yml` runs typecheck + tests +
   `npm audit` for the example on every relevant push/PR.
 
-## Known issues & follow-ups (pre-existing, out of scope)
+## Follow-ups
 
-- **Root `npm run typecheck` is red:** the root `tsconfig.json` includes
-  `*.test.ts` but lacks Jest types, so test files report `Cannot find name 'it'`
-  etc. Tests themselves compile via ts-jest's `tsconfig.test.json`. *Follow-up:*
-  exclude tests from the root `tsc` config or add a `typecheck:test` script that
-  points at `tsconfig.test.json`.
-- **A few root unit tests fail in the local sandbox** due to missing
-  `WebSocketPair` shims and fake-timer flakiness under Node 24 — environmental,
-  not caused by this work.
+- **Root typecheck — resolved.** The root `tsconfig.json` now covers only the
+  Worker source; `tsconfig.node.json` covers the local runtime and
+  `tsconfig.test.json` covers tests, wired as `typecheck` / `typecheck:node` /
+  `typecheck:test` (all in `test:ci`). *(PR #9, merged.)*
+- **Root test environment — resolved.** The Jest ESM/Node-24 failures (`jest`
+  not injected as a global, missing `WebSocketPair`, undici rejecting the
+  status-101 WebSocket upgrade `Response`) are fixed via `@jest/globals` imports
+  and a shared `setupFiles` shim. Fixing the environment also surfaced and
+  repaired two real bugs: a `globToRegex` globstar bug (`src/bindings/search.ts`)
+  and a self-heal bug where a healed retry was stored under a new subtask id
+  (`src/index.ts`). Unit 152/152 and integration 6/6 pass. *(PR #10.)*
 - **`examples/crypto-payments` `POST /charges`** returns provider errors as a
   generic 502 and logs details; provider adapters could add richer typed error
   categories in future.

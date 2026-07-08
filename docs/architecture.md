@@ -1,6 +1,14 @@
 # Architecture
 
-This document describes the system architecture of the Agent Orchestrator platform — how requests flow through the system, how components interact, and how Dynamic Workers are provisioned.
+This document describes the system architecture of the Agent Orchestrator platform — how requests flow through the system, how components interact, and how agents are provisioned.
+
+The platform uses a **ports-and-adapters** (hexagonal) design. A runtime-neutral
+orchestration **core** owns all the logic (decomposition, dependency scheduling,
+bounded concurrency, self-heal, review flow, cost aggregation). Everything that
+touches a specific platform — compute, state, LLM calls, egress — sits behind a
+small interface (a *port*) with one or more *adapters*. This is what makes the
+system runnable both on the Cloudflare edge and as a local Node process. See
+[Portable Architecture](#portable-architecture-ports--adapters) below.
 
 ---
 
@@ -58,6 +66,80 @@ This document describes the system architecture of the Agent Orchestrator platfo
 └──────────────────────────────────────────────────────────────────┘
 ```
 
+The diagram above shows the **Cloudflare edge runtime**. The same orchestration
+core also drives a **local Node runtime** — see the next section.
+
+---
+
+## Portable Architecture (Ports & Adapters)
+
+The orchestration logic lives in `src/core/` and depends only on interfaces, not
+on Cloudflare APIs. Three ports isolate everything platform-specific:
+
+| Port | Interface | Responsibility | Adapters |
+|---|---|---|---|
+| **Compute** | `AgentRuntime` (`src/core/ports.ts`) | Run one agent for a subtask and return its result | Cloudflare Worker Loader (`src/index.ts`) · `LocalRuntime` (`src/runtime/local.ts`) |
+| **State** | `StateStore` (`src/core/ports.ts`) | Persist task lifecycle, subtasks, results, and cost | Durable Objects (`src/state.ts`) · `InMemoryStateStore` (`src/core/memory-state-store.ts`) |
+| **LLM** | `LlmProvider` (`src/providers/llm/types.ts`) | Chat completion over any model backend | Anthropic · OpenAI-compatible (OpenAI/DeepSeek/Ollama/self-hosted) |
+
+```
+                    ┌──────────────────────────────────────────┐
+                    │        Orchestration core (src/core)       │
+                    │  decompose · schedule (semaphore) · self-  │
+                    │  heal · review flow · cost aggregation     │
+                    └───────┬───────────┬───────────┬───────────┘
+                            │           │           │
+                    AgentRuntime   StateStore   LlmProvider    ← ports
+                            │           │           │
+        ┌───────────────────┴───┐   ┌───┴────┐  ┌───┴─────────────────────┐
+        ▼                       ▼   ▼        ▼  ▼                         ▼
+  Cloudflare Worker        LocalRuntime   Durable   InMemory       Anthropic /
+  Loader (Dynamic          (in-process    Objects   StateStore     OpenAI-compatible
+  Workers)                 runners)                                (DeepSeek/Ollama/…)
+```
+
+### Two runtimes, one core
+
+| Concern | Cloudflare edge runtime | Local Node runtime |
+|---|---|---|
+| Entry point | `src/index.ts` (Worker) | `src/local/main.ts` → `src/local/server.ts` |
+| Agent execution | Dynamic Workers (sandboxed V8 isolates) via Worker Loader | In-process runners (`src/agents/runners.ts`) |
+| State | Durable Objects (`TaskManager`, `CostTracker`) | `InMemoryStateStore` |
+| Log streaming | `LogSession` DO → WebSocket | `log-hub` → Server-Sent Events |
+| Egress control | `HttpGateway` binding (`globalOutbound`) | `EgressPolicy.guardedFetch` (`src/runtime/egress.ts`) |
+| Requires a Cloudflare account | Yes | No |
+
+Both expose the **same HTTP API** and run the identical core, so behavior is
+consistent across environments (the same code is exercised by both the unit and
+integration suites).
+
+### Bounded concurrency
+
+Ready subtasks (those whose dependencies are satisfied) are dispatched together,
+but a counting `Semaphore` (`src/core/semaphore.ts`) caps how many agents run at
+once (`MAX_PARALLEL_AGENTS`, default 4). This keeps concurrent multi-agent
+execution within LLM provider rate limits and provides backpressure.
+
+### Pluggable LLM Providers
+
+The active model backend is chosen by configuration and built by
+`createLlmProvider()` (`src/providers/llm/registry.ts`). Adding a backend is a
+single `case` plus an optional pricing entry.
+
+| `LLM_PROVIDER` | Adapter | Base URL |
+|---|---|---|
+| `anthropic` | `AnthropicProvider` | Anthropic API |
+| `openai` | `OpenAiCompatibleProvider` | `https://api.openai.com/v1` |
+| `deepseek` | `OpenAiCompatibleProvider` | `https://api.deepseek.com/v1` |
+| `openai-compatible`, `ollama`, `vllm`, `lmstudio`, `together`, `groq` | `OpenAiCompatibleProvider` | requires `LLM_BASE_URL` |
+
+Providers accept an injectable `fetchImpl`. The local runtime passes its
+`EgressPolicy.guardedFetch`, so the domain allowlist and credential injection are
+enforced on the *actual* network call. On Cloudflare, `src/bindings/llm.ts`
+delegates to this same layer, so per-task `provider` / `model` selection works at
+the edge too. Pricing (`pricing.ts`) and retry/backoff (`retry.ts`) are shared
+across all adapters.
+
 ---
 
 ## Component Map
@@ -78,6 +160,23 @@ This document describes the system architecture of the Agent Orchestrator platfo
 | CodeGenAgent | `src/agents/codegen.ts` | Agent source (bundled at runtime) | Generates code from natural language spec |
 | TestAgent | `src/agents/test.ts` | Agent source (bundled at runtime) | Writes unit/integration tests |
 | ReviewAgent | `src/agents/review.ts` | Agent source (bundled at runtime) | Code review with structured severity-rated comments |
+
+### Portable core & adapters
+
+| Component | Source File | Type | Responsibility |
+|---|---|---|---|
+| Orchestrator | `src/core/orchestrator.ts` | Core (runtime-neutral) | Decomposition, concurrent scheduling, self-heal, review flow — depends only on ports |
+| Ports | `src/core/ports.ts` | Interfaces | `StateStore` and `AgentRuntime` definitions |
+| State machine | `src/core/state-machine.ts` | Pure functions | Transition table + cost aggregation |
+| Decompose | `src/core/decompose.ts` | Pure function | Task → subtask dependency graph |
+| Semaphore | `src/core/semaphore.ts` | Utility | Bounds concurrent agent execution |
+| InMemoryStateStore | `src/core/memory-state-store.ts` | Adapter | `StateStore` for local/testing |
+| LlmProvider registry | `src/providers/llm/registry.ts` | Factory | Builds the configured LLM adapter |
+| LLM adapters | `src/providers/llm/anthropic.ts`, `openai-compatible.ts` | Adapters | Chat over Anthropic / OpenAI-compatible backends |
+| EgressPolicy | `src/runtime/egress.ts` | Adapter | Allowlist + credential-injecting `guardedFetch` (local) |
+| LocalRuntime | `src/runtime/local.ts` | Adapter | `AgentRuntime` running in-process runners |
+| In-process runners | `src/agents/runners.ts` | Adapter | codegen/test/review executed in the Node process |
+| Local server | `src/local/server.ts`, `main.ts` | Node HTTP | REST API + SSE streaming for the local runtime |
 
 ---
 
