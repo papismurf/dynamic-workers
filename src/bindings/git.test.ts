@@ -221,3 +221,101 @@ describe("Git.status / log / createPullRequest / push", () => {
     await expect(makeGit().push()).resolves.toBeUndefined();
   });
 });
+
+describe("Git error handling", () => {
+  it("diff throws on a non-404 error", async () => {
+    const fx = createFetchMock().on(
+      "GET https://api.github.com/repos/acme/api/compare/*",
+      () => jsonResponse({}, 500)
+    );
+    fx.install();
+    try {
+      await expect(makeGit().diff()).rejects.toThrow(/Git\.diff failed: 500/);
+    } finally {
+      fx.restore();
+    }
+  });
+
+  it("status returns [] on 404 and throws on other errors", async () => {
+    const notFound = createFetchMock().on(
+      "GET https://api.github.com/repos/acme/api/compare/*",
+      () => jsonResponse({}, 404)
+    );
+    notFound.install();
+    try {
+      expect(await makeGit().status()).toEqual([]);
+    } finally {
+      notFound.restore();
+    }
+
+    const boom = createFetchMock().on(
+      "GET https://api.github.com/repos/acme/api/compare/*",
+      () => jsonResponse({}, 503)
+    );
+    boom.install();
+    try {
+      await expect(makeGit().status()).rejects.toThrow(/Git\.status failed: 503/);
+    } finally {
+      boom.restore();
+    }
+  });
+
+  it("branch throws on a non-422 error", async () => {
+    const fx = createFetchMock()
+      .on("GET https://api.github.com/repos/acme/api/git/ref/heads/main", () =>
+        jsonResponse({ object: { sha: "BASE" } })
+      )
+      .on("POST https://api.github.com/repos/acme/api/git/refs", () =>
+        jsonResponse({}, 500)
+      );
+    fx.install();
+    try {
+      await expect(makeGit().branch("agent/x")).rejects.toThrow(/Git\.branch failed: 500/);
+    } finally {
+      fx.restore();
+    }
+  });
+
+  it("log throws on error", async () => {
+    const fx = createFetchMock().on(
+      "GET https://api.github.com/repos/acme/api/commits*",
+      () => jsonResponse({}, 500)
+    );
+    fx.install();
+    try {
+      await expect(makeGit().log()).rejects.toThrow(/Git\.log failed: 500/);
+    } finally {
+      fx.restore();
+    }
+  });
+
+  it("createPullRequest throws with the upstream body on failure", async () => {
+    const fx = createFetchMock().on(
+      "POST https://api.github.com/repos/acme/api/pulls",
+      () => jsonResponse({ message: "validation failed" }, 422)
+    );
+    fx.install();
+    try {
+      await expect(makeGit().createPullRequest("t", "b")).rejects.toThrow(
+        /Git\.createPullRequest failed: 422/
+      );
+    } finally {
+      fx.restore();
+    }
+  });
+
+  it("commit surfaces a failed getRef", async () => {
+    const fx = createFetchMock().on(
+      "GET https://api.github.com/repos/acme/api/git/ref/heads/agent/x",
+      () => jsonResponse({}, 404)
+    );
+    fx.install();
+    try {
+      await expect(makeGit().commit("m", { "a.ts": "x" })).rejects.toThrow(
+        /getRef\(agent\/x\) failed: 404/
+      );
+    } finally {
+      fx.restore();
+    }
+  });
+});

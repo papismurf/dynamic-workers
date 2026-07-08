@@ -95,6 +95,50 @@ describe("LocalRuntime", () => {
     }
   });
 
+  it("derives the egress allowlist from a custom baseUrl host", async () => {
+    const fx = createFetchMock().on(
+      "POST https://llm.internal.example/v1/chat/completions",
+      () =>
+        jsonResponse({
+          choices: [
+            {
+              message: {
+                content: "```filepath:out.ts\nexport const x = 1;\n```",
+              },
+            },
+          ],
+          usage: { prompt_tokens: 5, completion_tokens: 5 },
+          model: "local-model",
+        })
+    );
+    fx.install();
+    try {
+      const runtime = new LocalRuntime({
+        // No explicit allowedDomains — it must be derived from baseUrl.
+        llm: {
+          provider: "openai-compatible",
+          apiKey: "sk-test",
+          model: "local-model",
+          baseUrl: "https://llm.internal.example/v1",
+        },
+      });
+      const result = await runtime.runAgent({
+        taskId: "t-baseurl",
+        subtask: { id: "s1", agentType: "codegen", description: "x", context: {}, dependencies: [] },
+        request: {
+          description: "x",
+          agentType: "codegen",
+          repo: { owner: "a", repo: "b", branch: "c", baseBranch: "main", files: {} },
+          config: { provider: "openai-compatible", model: "local-model" },
+        },
+      });
+      expect(result.success).toBe(true);
+      expect(fx.calls).toHaveLength(1);
+    } finally {
+      fx.restore();
+    }
+  });
+
   it("returns a failed result (not a throw) when the agent produces no code", async () => {
     const fx = createFetchMock().on(
       "POST https://api.openai.com/v1/chat/completions",
