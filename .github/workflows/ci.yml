@@ -1,0 +1,48 @@
+name: CI
+
+# Root quality gate for the orchestrator. Runs the hermetic checks that need no
+# Cloudflare account or secrets: the three typecheck surfaces (Worker source,
+# local Node runtime, tests) plus the unit + integration test suites.
+#
+# The Playwright e2e suite is intentionally excluded here — it boots `wrangler
+# dev` (workerd) and is better run as a separate, secret-aware job.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel superseded runs on the same ref to save CI minutes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Typecheck (Worker source)
+        run: npm run typecheck
+
+      - name: Typecheck (local Node runtime)
+        run: npm run typecheck:node
+
+      - name: Typecheck (tests)
+        run: npm run typecheck:test
+
+      - name: Unit tests
+        run: npm run test:unit
+
+      - name: Integration tests
+        run: npm run test:integration
